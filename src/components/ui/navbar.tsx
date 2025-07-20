@@ -12,7 +12,7 @@ export default function Navbar() {
   const showNavbar = useDelayedVisibility(3000); 
 
   const navLinks = [
-    { label: "About", href: "#about" },
+    { label: "About", href: "/about" },
     { label: "Services", href: "#services" },
     { label: "Contact Us", href: "#contact" },
   ];
