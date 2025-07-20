@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto relative z-5">
+      <section className="flex flex-col  text-left px-4 py-28 max-w-4xl mx-auto relative z-10">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -29,7 +29,7 @@ export default function Home() {
           <span className="text-[#FFD700]">AI-Driven Insights</span>
         </motion.h2>
         <motion.p
-          className="text-lg mt-6 max-w-2xl"
+          className="text-lg mt-6 max-w-2xl md:text-left"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="text-gray-900 py-20 px-6 relative z-5">
+      <section className="text-gray-900 py-20 px-6 relative z-10">
         <motion.h3
           className="text-3xl font-bold text-center mb-14 text-white"
           initial={{ opacity: 0 }}
@@ -100,24 +100,24 @@ export default function Home() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6] relative z-5"
+        className="text-center py-20 px-6 bg-[#0062D6] relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h3 className="text-3xl font-bold mb-4 z-5">
+        <h3 className="text-3xl font-bold mb-4 z-10">
           Ready to Transform Your Business?
         </h3>
-        <p className="mb-8 max-w-2xl mx-auto text-white/90 z-5">
+        <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
           Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-5">
+        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-10">
           Schedule Your Free Consultation
         </Button>
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 relative z-5">
+      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 relative z-10">
         © {new Date().getFullYear()} BizWise. All rights reserved.
       </footer>
     </main>
