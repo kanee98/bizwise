@@ -164,7 +164,7 @@ const CanvasAnimation: React.FC = () => {
 
     document.documentElement.style.cssText = "margin:0;padding:0;height:100%";
     document.body.style.cssText =
-      "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#F5F8FA 0%,#FFFFFF 100%);";
+      "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#001e41 0%,#001e41 100%);";
 
     const resize = () => {
       const canvas = canvasRef.current;
