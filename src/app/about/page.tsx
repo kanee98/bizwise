@@ -99,7 +99,7 @@ export default function AboutPage() {
       >
         <h3 className="text-3xl font-bold mb-4 z-10">Let’s Collaborate</h3>
         <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
-          Whether you're exploring AI for the first time or scaling your data
+          Whether you’re exploring AI for the first time or scaling your data
           operations, we’re here to help you take the next step.
         </p>
         <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-10">
