@@ -27,7 +27,11 @@ export default function Navbar() {
         transition={{ duration: 0.6 }}
         className="flex justify-between items-center max-w-7xl mx-auto"
       >
-        <h1 className="text-2xl font-bold tracking-tight text-white">BizWise</h1>
+        <Link href="/">
+          <h1 className="text-2xl font-bold tracking-tight text-white cursor-pointer">
+            BizWise
+          </h1>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 items-center">

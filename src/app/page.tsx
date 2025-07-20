@@ -1,5 +1,5 @@
 "use client";
-import Home from "@/app/pages/home";
+import Home from "@/app/home/page";
 import Loader from "@/components/loader/CircuitMaster";
 import { usePageLoader } from "@/hooks/homePage";
 
