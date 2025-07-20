@@ -1,11 +1,7 @@
 import React from "react";
-import CircuitBackground from "@/components/ui/CircuitBackground";
 
 const BizwiseLoader: React.FC = () => (
   <div id="loading-wrapper">
-    <div className="circuit-background-wrapper">
-        <CircuitBackground />
-    </div>
     <div id="loading-content"></div> 
 
     <svg
