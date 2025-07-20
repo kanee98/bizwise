@@ -2,16 +2,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import CircuitBackground from '@/components//ui/CircuitBackground';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#004AAD] to-[#0062D6] text-white font-sans">
+    <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
+      <CircuitBackground />
       {/* Navbar */}
       <motion.nav
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex justify-between items-center px-8 py-5 bg-[#004AAD] shadow-lg sticky top-0 z-50"
+        className="flex justify-between items-center px-8 py-5 bg-[#001e41] shadow-lg sticky top-0 z-50"
       >
         <motion.h1
           className="text-3xl font-bold tracking-tight"
@@ -26,14 +28,14 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] transition-all px-5 py-2 text-base font-medium rounded-xl">
+          <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] transition-all px-5 py-2 text-base font-medium rounded-xl z-5">
             Schedule Your Free Consultation
           </Button>
         </motion.div>
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto">
+      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto sticky z-5">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -65,9 +67,9 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-white text-gray-900 py-20 px-6">
+      <section className="text-gray-900 py-20 px-6 sticky z-5">
         <motion.h3
-          className="text-3xl font-bold text-center mb-14"
+          className="text-3xl font-bold text-center mb-14 text-white"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -75,7 +77,7 @@ export default function Home() {
           Our Services
         </motion.h3>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 text-white max-w-6xl mx-auto">
           {[
             {
               title: "Business Intelligence & Reporting",
@@ -100,7 +102,7 @@ export default function Home() {
           ].map((service, idx) => (
             <motion.div
               key={idx}
-              className="bg-[#f0f8ff] p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
+              className="bg-[rgba(240,248,255,0.1)] backdrop-blur-md border border-[#004AAD]/30 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -115,24 +117,24 @@ export default function Home() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6]"
+        className="text-center py-20 px-6 bg-[#0062D6] z-5"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h3 className="text-3xl font-bold mb-4">
+        <h3 className="text-3xl font-bold mb-4 z-5">
           Ready to Transform Your Business?
         </h3>
-        <p className="mb-8 max-w-2xl mx-auto text-white/90">
+        <p className="mb-8 max-w-2xl mx-auto text-white/90 z-5">
           Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg">
+        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-5">
           Schedule Your Free Consultation
         </Button>
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80">
+      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 z-5">
         © {new Date().getFullYear()} BizWise. All rights reserved.
       </footer>
     </main>
