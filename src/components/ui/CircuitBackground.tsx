@@ -211,7 +211,7 @@ const CanvasAnimation: React.FC = () => {
       frameRef.current++;
       requestAnimationFrame(draw);
     };
-    
+
     draw();
 
     return () => {
