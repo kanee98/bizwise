@@ -1,11 +1,7 @@
 "use client";
 import React from "react";
-import { useDelayedVisibility } from "@/hooks/homePage";
 
 const Footer = () => {
-  const showFooter = useDelayedVisibility(3000); 
-  if (!showFooter) return null;
-  
   return (
     <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 relative z-10">
       © {new Date().getFullYear()} BizWise. All rights reserved. Designed and built by{" "}

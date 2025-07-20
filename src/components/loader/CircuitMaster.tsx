@@ -21,7 +21,7 @@ const BizwiseLoader: React.FC = () => (
         strokeWidth="2"
         className="bizwise-text"
       >
-        BizWise.lk
+        BizWise
       </text>
     </svg>
 
