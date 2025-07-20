@@ -99,14 +99,16 @@ export default function Home() {
             return (
               <motion.div
                 key={idx}
-                className="bg-[rgba(240,248,255,0.1)] backdrop-blur-md border border-[#004AAD]/30 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                className="group bg-[rgba(240,248,255,0.1)] backdrop-blur-md border border-[#004AAD]/30 p-6 rounded-2xl shadow-md hover:shadow-xl hover:border-[#4DA3FF] transition-all duration-300 ease-in-out transform hover:-translate-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Icon className="text-[#4DA3FF] mb-4 w-8 h-8" />
-                <h4 className="text-xl font-semibold mb-3">{service.title}</h4>
+                <Icon className="text-[#4DA3FF] mb-4 w-8 h-8 transition-transform duration-300 group-hover:scale-110" />
+                <h4 className="text-xl font-semibold mb-3 group-hover:text-[#FFFFFF] transition-colors duration-300">
+                  {service.title}
+                </h4>
                 <p className="text-sm">{service.desc}</p>
               </motion.div>
             );
