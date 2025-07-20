@@ -15,7 +15,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   const isActive = (href: string) => {
