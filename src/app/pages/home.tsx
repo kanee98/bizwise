@@ -9,7 +9,6 @@ import {
   UserCheck,
   LifeBuoy,
 } from "lucide-react";
-import CircuitBackground from "@/components/ui/CircuitBackground";
 import { useScrollToTop } from "@/hooks/homePage";
 
 export default function HomePage() {
@@ -17,8 +16,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
-      <CircuitBackground />
-
       {/* Hero Section */}
       <section className="flex flex-col text-left px-4 py-28 max-w-4xl mx-auto relative z-10">
         <motion.h2

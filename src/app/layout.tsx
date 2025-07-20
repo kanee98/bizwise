@@ -5,6 +5,7 @@ import '../../styles/CircuitMaster.css'
 
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
+import CircuitBackground from "@/components/ui/CircuitBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <CircuitBackground />
         <Navbar />
         {children}
         <Footer />
