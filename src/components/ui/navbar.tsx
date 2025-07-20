@@ -4,12 +4,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import Link from "next/link"; 
+import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Utility nav links
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
@@ -17,13 +16,13 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="sticky top-0 z-50 bg-[#001e41] shadow-lg px-6 py-4"
-    >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+    <nav className="sticky top-0 z-50 bg-[#001e41] shadow-lg px-6 py-4">
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-between items-center max-w-7xl mx-auto"
+      >
         <h1 className="text-2xl font-bold tracking-tight text-white">BizWise</h1>
 
         {/* Desktop Nav */}
@@ -32,12 +31,11 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-white/80 hover:text-white transition-colors duration-300 relative group"
+              className="text-white/80 hover:text-white transition-colors duration-300"
             >
-              <span className="relative z-10">{link.label}</span>
+              {link.label}
             </Link>
           ))}
-
           <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] px-5 py-2 text-sm rounded-xl whitespace-nowrap">
             Schedule Your Free Consultation
           </Button>
@@ -49,7 +47,7 @@ export default function Navbar() {
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Nav Menu */}
       {menuOpen && (
@@ -72,6 +70,6 @@ export default function Navbar() {
           </Button>
         </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }
