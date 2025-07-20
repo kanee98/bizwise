@@ -5,15 +5,24 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // 🔹 Step 1: Import this
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname(); // 🔹 Step 2: Get current path
 
   const navLinks = [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "#services" },
     { label: "Contact Us", href: "#contact" },
   ];
+
+  const isActive = (href: string) => {
+    // For hash links, always return false — they’re not "pages"
+    if (href.startsWith("#")) return false;
+    return pathname === href;
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-[#001e41] shadow-lg px-6 py-4">
@@ -35,7 +44,11 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-white/80 hover:text-white transition-colors duration-300"
+              className={`transition-colors duration-300 ${
+                isActive(link.href)
+                  ? "text-white font-semibold border-b-2 border-white pb-1"
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               {link.label}
             </Link>
@@ -60,7 +73,9 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-white text-base px-2 py-1 rounded hover:bg-white/10 transition-colors duration-300 w-full"
+              className={`text-white text-base px-2 py-1 rounded transition-colors duration-300 w-full ${
+                isActive(link.href) ? "bg-white/10 font-semibold" : "hover:bg-white/10"
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
