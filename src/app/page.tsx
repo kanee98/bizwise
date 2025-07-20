@@ -2,10 +2,17 @@
 import React, {useState} from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import {
+  BarChart3,
+  LineChart,
+  MessageCircle,
+  UserCheck,
+  LifeBuoy,
+} from "lucide-react";
 import CircuitBackground from '@/components//ui/CircuitBackground';
 import { useScrollToTop } from "@/hooks/homePage"; 
 import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +32,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Empowering Sri Lankan Businesses with{" "}
+          Empowering Sri Lankan <br></br>Businesses with<br></br>
           <span className="text-[#FFD700]">AI-Driven Insights</span>
         </motion.h2>
         <motion.p
@@ -43,7 +50,7 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-md">
+          <Button className="text-lg px-6 py-3 bg-[#007BFF] text-white hover:bg-[#4DA3FF] rounded-xl font-semibold shadow-md">
             Schedule Your Free Consultation
           </Button>
         </motion.div>
@@ -65,36 +72,45 @@ export default function Home() {
             {
               title: "Business Intelligence & Reporting",
               desc: "Custom dashboards and insights with Power BI to guide your decisions.",
+              icon: BarChart3,
             },
             {
               title: "Predictive Analytics",
               desc: "Forecast sales and customer trends using Machine Learning.",
+              icon: LineChart,
             },
             {
               title: "Sentiment Analysis",
               desc: "Decode customer feedback using advanced Natural Language Processing.",
+              icon: MessageCircle,
             },
             {
               title: "Personalized Consultations",
               desc: "Expert guidance tailored to your business goals.",
+              icon: UserCheck,
             },
             {
               title: "Ongoing Support",
               desc: "Monthly subscription model with continuous AI-powered monitoring.",
+              icon: LifeBuoy,
             },
-          ].map((service, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-[rgba(240,248,255,0.1)] backdrop-blur-md border border-[#004AAD]/30 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-xl font-semibold mb-3">{service.title}</h4>
-              <p className="text-sm">{service.desc}</p>
-            </motion.div>
-          ))}
+          ].map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={idx}
+                className="bg-[rgba(240,248,255,0.1)] backdrop-blur-md border border-[#004AAD]/30 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Icon className="text-[#4DA3FF] mb-4 w-8 h-8" />
+                <h4 className="text-xl font-semibold mb-3">{service.title}</h4>
+                <p className="text-sm">{service.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -117,9 +133,7 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 relative z-10">
-        © {new Date().getFullYear()} BizWise. All rights reserved.
-      </footer>
+      <Footer />
     </main>
   );
 }
