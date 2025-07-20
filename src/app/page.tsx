@@ -1,15 +1,14 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import CircuitBackground from '@/components//ui/CircuitBackground';
+import { useScrollToTop } from "@/hooks/homePage"; 
 
 export default function Home() {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+  useScrollToTop();
+  
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
       <CircuitBackground />
