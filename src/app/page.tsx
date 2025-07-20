@@ -117,7 +117,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6] z-5"
+        className="text-center py-20 px-6 bg-[#0062D6] sticky z-5"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -134,7 +134,7 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 z-5">
+      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 sticky z-5">
         © {new Date().getFullYear()} BizWise. All rights reserved.
       </footer>
     </main>

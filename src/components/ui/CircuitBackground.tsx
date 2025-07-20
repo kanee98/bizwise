@@ -30,9 +30,9 @@ class Line {
     this.speed = random(0.5, 1.25);
     this.target = { x: x + 0.1, y: y + 0.1 };
     this.thickness = Math.round(random(0.5, 3));
-    this.maxLength = Math.round(random(100, 350));
+    this.maxLength = 100000;
     this.hasShadow = this.thickness > 2;
-    this.decay = random(0.0075, 0.05);
+    this.decay = 1 / (60 * 3); 
   }
 
   step(canvasW: number, canvasH: number) {
@@ -100,16 +100,33 @@ class Line {
   }
 
   steer(canvasW: number, canvasH: number) {
-    const distance = random(50, 500);
-    let angle = random(0, TWO_PI);
-    let tx = this.x + Math.cos(angle) * distance;
-    let ty = this.y + Math.sin(angle) * distance;
+    const distance = random(150, 1000); 
 
-    if (tx < 0 || tx > canvasW || ty < 0 || ty > canvasH) {
-      angle = random(0, TWO_PI);
+    const allowedAngles = [
+      0,
+      Math.PI / 4,
+      Math.PI / 2,
+      (3 * Math.PI) / 4,
+      Math.PI,
+      (5 * Math.PI) / 4,
+      (3 * Math.PI) / 2,
+      (7 * Math.PI) / 4,
+    ];
+
+    let angle: number;
+    let tx: number;
+    let ty: number;
+    let attempts = 0;
+
+    do {
+      angle = random(allowedAngles);
       tx = this.x + Math.cos(angle) * distance;
       ty = this.y + Math.sin(angle) * distance;
-    }
+      attempts++;
+    } while (
+      (tx < 0 || tx > canvasW || ty < 0 || ty > canvasH) &&
+      attempts < 10
+    );
 
     this.target.x = tx;
     this.target.y = ty;
