@@ -1,10 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import CircuitBackground from '@/components//ui/CircuitBackground';
 
 export default function Home() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
       <CircuitBackground />
@@ -35,7 +40,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto sticky z-5">
+      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto relative z-5">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -67,7 +72,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="text-gray-900 py-20 px-6 sticky z-5">
+      <section className="text-gray-900 py-20 px-6 relative z-5">
         <motion.h3
           className="text-3xl font-bold text-center mb-14 text-white"
           initial={{ opacity: 0 }}
@@ -117,7 +122,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6] sticky z-5"
+        className="text-center py-20 px-6 bg-[#0062D6] relative z-5"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -134,7 +139,7 @@ export default function Home() {
       </motion.section>
 
       {/* Footer */}
-      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 sticky z-5">
+      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80 relative z-5">
         © {new Date().getFullYear()} BizWise. All rights reserved.
       </footer>
     </main>
