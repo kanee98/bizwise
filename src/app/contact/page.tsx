@@ -10,13 +10,13 @@ export default function ContactUsPage() {
       <div className="max-w-4xl w-full text-center mb-12">
         <h1 className="text-4xl font-extrabold mb-4">Contact Us</h1>
         <p className="text-lg text-white/80">
-          Have a question or want to work with us? We'd love to hear from you.
+          Have a question or want to work with us? We’d love to hear from you.
         </p>
       </div>
 
       <section className="w-full max-w-3xl bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-md border border-white/10">
         <form
-          action="https://formspree.io/f/{your-id}" // replace with your actual Formspree or backend endpoint
+          action="https://formspree.io/f/{your-id}" 
           method="POST"
           className="space-y-6"
         >

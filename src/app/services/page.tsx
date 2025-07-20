@@ -18,7 +18,7 @@ export default function ServicesPage() {
         {/* Tier 1 */}
         <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-md border border-white/10">
           <h2 className="text-2xl font-bold text-[#4DA3FF] mb-2">Tier 1: Foundational Services</h2>
-          <h3 className="text-xl font-semibold text-white mb-4">The "Get Control" Package</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">The &quot;Get Control&quot; Package</h3>
           <p className="text-white/80">
             Ideal for startups and small businesses looking to establish their digital presence. We’ll help you build solid foundations—from tailored websites to smart integrations.
           </p>
@@ -27,7 +27,7 @@ export default function ServicesPage() {
         {/* Tier 2 */}
         <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-md border border-white/10">
           <h2 className="text-2xl font-bold text-[#4DA3FF] mb-2">Tier 2: High-Value Differentiator Services</h2>
-          <h3 className="text-xl font-semibold text-white mb-4">The "AI-Powered Edge" Package</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">The &quot;AI-Powered Edge&quot; Package</h3>
           <p className="text-white/80">
             Perfect for businesses aiming to innovate. Unlock AI tools, automation, and data-driven insights to gain a competitive edge and delight your users.
           </p>
@@ -36,7 +36,7 @@ export default function ServicesPage() {
         {/* Tier 3 */}
         <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-md border border-white/10">
           <h2 className="text-2xl font-bold text-[#4DA3FF] mb-2">Tier 3: Strategic & Growth Services</h2>
-          <h3 className="text-xl font-semibold text-white mb-4">The "Strategic Partner" Package</h3>
+          <h3 className="text-xl font-semibold text-white mb-4">The &quot;Strategic Partner&quot; Package</h3>
           <p className="text-white/80">
             For businesses ready to scale. We act as your long-term tech partner—offering strategic planning, continuous optimization, and ongoing innovation support.
           </p>
