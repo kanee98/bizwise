@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/page"; 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AboutPage() {
   useScrollToTop();
@@ -11,7 +12,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
       {/* About Hero Section */}
-      <section className="flex flex-col text-left px-4 py-28 max-w-4xl mx-auto relative z-10">
+      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto relative z-10">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -102,9 +103,11 @@ export default function AboutPage() {
           Whether you’re exploring AI for the first time or scaling your data
           operations, we’re here to help you take the next step.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
-          Schedule a Free Consultation
-        </Button>
+        <Link href="/schedule">
+          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
+            Schedule a Free Consultation
+          </Button>
+        </Link>
       </motion.section>
     </main>
   );

@@ -53,9 +53,11 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] px-5 py-2 text-sm rounded-xl whitespace-nowrap">
-            Schedule Your Free Consultation
-          </Button>
+          <Link href="/schedule">
+            <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] px-5 py-2 text-sm rounded-xl whitespace-nowrap">
+              Schedule Your Free Consultation
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -81,12 +83,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button
-            className="bg-[#007BFF] hover:bg-[#4DA3FF] px-4 py-2 text-sm rounded-xl w-full text-left"
-            onClick={() => setMenuOpen(false)}
-          >
-            Schedule Your Free Consultation
-          </Button>
+          <Link href="/schedule">
+            <Button
+              className="bg-[#007BFF] hover:bg-[#4DA3FF] px-4 py-2 text-sm rounded-xl w-full text-left"
+              onClick={() => setMenuOpen(false)}
+            >
+              Schedule Your Free Consultation
+            </Button>
+          </Link>
         </div>
       )}
     </nav>

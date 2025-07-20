@@ -33,3 +33,16 @@ export function useDelayedVisibility(delay: number = 3000): boolean {
 
   return isVisible;
 }
+
+export const useCalendlyEmbed = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+};

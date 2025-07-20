@@ -10,6 +10,7 @@ import {
   LifeBuoy,
 } from "lucide-react";
 import { useScrollToTop } from "@/hooks/page";
+import Link from "next/link";
 
 export default function HomePage() {
   useScrollToTop();
@@ -17,7 +18,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
       {/* Hero Section */}
-      <section className="flex flex-col text-left px-4 py-28 max-w-4xl mx-auto relative z-10">
+      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto relative z-10">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -43,9 +44,11 @@ export default function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <Button className="text-lg px-6 py-3 bg-[#007BFF] text-white hover:bg-[#4DA3FF] rounded-xl font-semibold shadow-md">
-            Schedule Your Free Consultation
-          </Button>
+          <Link href="/schedule">
+            <Button className="text-lg px-6 py-3 bg-[#007BFF] text-white hover:bg-[#4DA3FF] rounded-xl font-semibold shadow-md">
+              Schedule Your Free Consultation
+            </Button>
+          </Link>
         </motion.div>
       </section>
 
@@ -122,9 +125,11 @@ export default function HomePage() {
         <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
           Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
-          Schedule Your Free Consultation
-        </Button>
+        <Link href="/schedule">
+          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
+            Schedule Your Free Consultation
+          </Button>
+        </Link>
       </motion.section>
     </main>
   );
