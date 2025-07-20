@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 
 const TWO_PI = Math.PI * 2;
-const HALF_PI = Math.PI / 2;
 
 type Point = {
   x: number;
@@ -151,49 +150,6 @@ const CanvasAnimation: React.FC = () => {
   const frameRef = useRef(0);
   const gradientRef = useRef<CanvasGradient | null>(null);
 
-  const resize = () => {
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    gradientRef.current = ctx.createLinearGradient(width*0.25,0,width*0.75,0);
-    gradientRef.current.addColorStop(0, "#023d64");
-    gradientRef.current.addColorStop(1, "#0054ad");
-  };
-
-  const draw = () => {
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
-    const width = canvas.width;
-    const height = canvas.height;
-
-    ctx.clearRect(0, 0, width, height);
-    ctx.lineCap = "round";
-    ctx.strokeStyle = gradientRef.current!;
-    ctx.fillStyle = "#006eff";
-    
-    linesRef.current = linesRef.current.filter(line => {
-      line.step(width, height);
-      return line.alpha > 0.01;
-    });
-
-    linesRef.current.forEach(line => line.draw(ctx, frameRef.current));
-
-    if (frameRef.current % 12 === 0) {
-      const x = random(0, width);
-      const y = random(0, height);
-      linesRef.current.push(new Line(x, y));
-    }
-
-    if (linesRef.current.length > 300) linesRef.current.shift();
-    frameRef.current++;
-    requestAnimationFrame(draw);
-  };
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -204,14 +160,58 @@ const CanvasAnimation: React.FC = () => {
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.zIndex = "0";
-    canvas.style.pointerEvents = "none"; // Prevent scroll and pointer interference
+    canvas.style.pointerEvents = "none"; 
 
     document.documentElement.style.cssText = "margin:0;padding:0;height:100%";
     document.body.style.cssText =
       "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#F5F8FA 0%,#FFFFFF 100%);";
 
-    window.addEventListener("resize", resize);
+    const resize = () => {
+      const canvas = canvasRef.current!;
+      const ctx = canvas.getContext("2d")!;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      gradientRef.current = ctx.createLinearGradient(width*0.25,0,width*0.75,0);
+      gradientRef.current.addColorStop(0, "#023d64");
+      gradientRef.current.addColorStop(1, "#0054ad");
+    };
+
     resize();
+    window.addEventListener("resize", resize);
+
+    const draw = () => {
+      const canvas = canvasRef.current!;
+      const ctx = canvas.getContext("2d")!;
+      const width = canvas.width;
+      const height = canvas.height;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineCap = "round";
+      ctx.strokeStyle = gradientRef.current!;
+      ctx.fillStyle = "#006eff";
+      
+      linesRef.current = linesRef.current.filter(line => {
+        line.step(width, height);
+        return line.alpha > 0.01;
+      });
+
+      linesRef.current.forEach(line => line.draw(ctx, frameRef.current));
+
+      if (frameRef.current % 12 === 0) {
+        const x = random(0, width);
+        const y = random(0, height);
+        linesRef.current.push(new Line(x, y));
+      }
+
+      if (linesRef.current.length > 300) linesRef.current.shift();
+      frameRef.current++;
+      requestAnimationFrame(draw);
+    };
+    
     draw();
 
     return () => {

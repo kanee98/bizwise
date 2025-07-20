@@ -11,11 +11,8 @@ import {
 } from "lucide-react";
 import CircuitBackground from "@/components/ui/CircuitBackground";
 import { useScrollToTop } from "@/hooks/homePage";
-import Navbar from "@/components/ui/navbar";
-import Footer from "@/components/ui/footer";
 
 export default function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
   useScrollToTop();
 
   return (
