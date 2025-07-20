@@ -1,42 +1,21 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 import CircuitBackground from '@/components//ui/CircuitBackground';
 import { useScrollToTop } from "@/hooks/homePage"; 
+import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
-
+  const [menuOpen, setMenuOpen] = useState(false);
   useScrollToTop();
   
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
       <CircuitBackground />
       {/* Navbar */}
-      <motion.nav
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex justify-between items-center px-8 py-5 bg-[#001e41] shadow-lg sticky top-0 z-50"
-      >
-        <motion.h1
-          className="text-3xl font-bold tracking-tight"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          BizWise
-        </motion.h1>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] transition-all px-5 py-2 text-base font-medium rounded-xl z-5">
-            Schedule Your Free Consultation
-          </Button>
-        </motion.div>
-      </motion.nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto relative z-5">
