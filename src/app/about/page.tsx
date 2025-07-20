@@ -64,12 +64,12 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-10 text-white text-center">
             {[
               {
-                name: "Amal Perera",
+                name: "Danesh Jayasinghe",
                 title: "Founder & Data Strategist",
                 bio: "10+ years in analytics and business development. Passionate about helping local businesses scale with data.",
               },
               {
-                name: "Nadeesha Fernando",
+                name: "Padmapriya Jayasinghe",
                 title: "Lead AI Engineer",
                 bio: "Machine learning expert with a focus on predictive modeling, NLP, and customer behavior analysis.",
               },

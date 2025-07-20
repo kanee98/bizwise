@@ -7,7 +7,7 @@ export default function SchedulePage() {
     useCalendlyEmbed();
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white flex flex-col items-center justify-center px-6 py-12 relative z-10">
+        <main className="text-white flex flex-col items-center justify-center px-6 py-12 relative z-10">
         <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold leading-tight mb-4">
             Schedule Your Free Consultation
