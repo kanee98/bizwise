@@ -167,39 +167,51 @@ const CanvasAnimation: React.FC = () => {
       "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#F5F8FA 0%,#FFFFFF 100%);";
 
     const resize = () => {
-      const canvas = canvasRef.current!;
-      const ctx = canvas.getContext("2d")!;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
       const width = window.innerWidth;
       const height = window.innerHeight;
+
       canvas.width = width;
       canvas.height = height;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      gradientRef.current = ctx.createLinearGradient(width*0.25,0,width*0.75,0);
-      gradientRef.current.addColorStop(0, "#023d64");
-      gradientRef.current.addColorStop(1, "#0054ad");
+
+      const gradient = ctx.createLinearGradient(width * 0.25, 0, width * 0.75, 0);
+      gradient.addColorStop(0, "#023d64");
+      gradient.addColorStop(1, "#0054ad");
+      gradientRef.current = gradient;
     };
+
 
     resize();
     window.addEventListener("resize", resize);
 
     const draw = () => {
-      const canvas = canvasRef.current!;
-      const ctx = canvas.getContext("2d")!;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx || !gradientRef.current) return;
+
       const width = canvas.width;
       const height = canvas.height;
 
       ctx.clearRect(0, 0, width, height);
       ctx.lineCap = "round";
-      ctx.strokeStyle = gradientRef.current!;
+      ctx.strokeStyle = gradientRef.current;
       ctx.fillStyle = "#006eff";
-      
-      linesRef.current = linesRef.current.filter(line => {
+
+      linesRef.current = linesRef.current.filter((line) => {
         line.step(width, height);
         return line.alpha > 0.01;
       });
 
-      linesRef.current.forEach(line => line.draw(ctx, frameRef.current));
+      linesRef.current.forEach((line) => line.draw(ctx, frameRef.current));
 
       if (frameRef.current % 12 === 0) {
         const x = random(0, width);
@@ -208,6 +220,7 @@ const CanvasAnimation: React.FC = () => {
       }
 
       if (linesRef.current.length > 300) linesRef.current.shift();
+
       frameRef.current++;
       requestAnimationFrame(draw);
     };

@@ -1,15 +1,17 @@
 import React from "react";
+import CircuitBackground from "@/components/ui/CircuitBackground";
 
 const BizwiseLoader: React.FC = () => (
   <div id="loading-wrapper">
-    <div id="loading-content"></div> {/* rotating ring */}
+    <div className="circuit-background-wrapper">
+        <CircuitBackground />
+    </div>
+    <div id="loading-content"></div> 
 
-    {/* Text separate, absolutely centered */}
     <svg
       viewBox="0 0 600 150"
       xmlns="http://www.w3.org/2000/svg"
-      width="600"
-      height="150"
+      className="bizwise-svg"
       id="bizwise-text-svg"
     >
       <text
