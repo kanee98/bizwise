@@ -26,7 +26,7 @@ export default function HomePage() {
         >
           Empowering Sri Lankan <br />
           Businesses with <br />
-          <span className="text-[#FFD700]">AI-Driven Insights</span>
+          <span className="text-[#007BFF]">AI-Driven Insights</span>
         </motion.h2>
         <motion.p
           className="text-lg mt-6 max-w-2xl md:text-left"
