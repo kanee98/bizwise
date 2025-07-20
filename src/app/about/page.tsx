@@ -18,7 +18,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          About <span className="text-[#FFD700]">BizWise</span>
+          About <span className="text-[#4DA3FF]">BizWise</span>
         </motion.h2>
         <motion.p
           className="text-lg mt-6 max-w-3xl md:text-left"
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
               >
                 <h4 className="text-xl font-semibold mb-2">{member.name}</h4>
-                <p className="text-[#FFD700] mb-2">{member.title}</p>
+                <p className="text-[#4DA3FF] mb-2">{member.title}</p>
                 <p className="text-sm text-white/80">{member.bio}</p>
               </motion.div>
             ))}
@@ -102,7 +102,7 @@ export default function AboutPage() {
           Whether you’re exploring AI for the first time or scaling your data
           operations, we’re here to help you take the next step.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-10">
+        <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
           Schedule a Free Consultation
         </Button>
       </motion.section>

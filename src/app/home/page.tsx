@@ -26,7 +26,7 @@ export default function HomePage() {
         >
           Empowering Sri Lankan <br />
           Businesses with <br />
-          <span className="text-[#007BFF]">AI-Driven Insights</span>
+          <span className="text-[#4DA3FF]">AI-Driven Insights</span>
         </motion.h2>
         <motion.p
           className="text-lg mt-6 max-w-2xl md:text-left"
@@ -122,7 +122,7 @@ export default function HomePage() {
         <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
           Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
         </p>
-        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg z-10">
+        <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
           Schedule Your Free Consultation
         </Button>
       </motion.section>
