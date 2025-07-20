@@ -30,9 +30,9 @@ class Line {
     this.speed = random(0.5, 1.25);
     this.target = { x: x + 0.1, y: y + 0.1 };
     this.thickness = Math.round(random(0.5, 3));
-    this.maxLength = 100000;
+    this.maxLength = 10000;
     this.hasShadow = this.thickness > 2;
-    this.decay = 1 / (60 * 3); 
+    this.decay = 1 / (60 * 0.5); 
   }
 
   step(canvasW: number, canvasH: number) {
