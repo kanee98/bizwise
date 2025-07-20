@@ -1,103 +1,140 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-br from-[#004AAD] to-[#0062D6] text-white font-sans">
+      {/* Navbar */}
+      <motion.nav
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-between items-center px-8 py-5 bg-[#004AAD] shadow-lg sticky top-0 z-50"
+      >
+        <motion.h1
+          className="text-3xl font-bold tracking-tight"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          BizWise
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] transition-all px-5 py-2 text-base font-medium rounded-xl">
+            Schedule Your Free Consultation
+          </Button>
+        </motion.div>
+      </motion.nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center px-4 py-28 max-w-4xl mx-auto">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold leading-tight"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Empowering Sri Lankan Businesses with{" "}
+          <span className="text-[#FFD700]">AI-Driven Insights</span>
+        </motion.h2>
+        <motion.p
+          className="text-lg mt-6 max-w-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          Organize, predict, and grow — all powered by intelligent data
+          solutions tailored just for your business.
+        </motion.p>
+        <motion.div
+          className="mt-8"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-md">
+            Schedule Your Free Consultation
+          </Button>
+        </motion.div>
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-white text-gray-900 py-20 px-6">
+        <motion.h3
+          className="text-3xl font-bold text-center mb-14"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          Our Services
+        </motion.h3>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {[
+            {
+              title: "Business Intelligence & Reporting",
+              desc: "Custom dashboards and insights with Power BI to guide your decisions.",
+            },
+            {
+              title: "Predictive Analytics",
+              desc: "Forecast sales and customer trends using Machine Learning.",
+            },
+            {
+              title: "Sentiment Analysis",
+              desc: "Decode customer feedback using advanced Natural Language Processing.",
+            },
+            {
+              title: "Personalized Consultations",
+              desc: "Expert guidance tailored to your business goals.",
+            },
+            {
+              title: "Ongoing Support",
+              desc: "Monthly subscription model with continuous AI-powered monitoring.",
+            },
+          ].map((service, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-[#f0f8ff] p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-xl font-semibold mb-3">{service.title}</h4>
+              <p className="text-sm">{service.desc}</p>
+            </motion.div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* CTA Section */}
+      <motion.section
+        className="text-center py-20 px-6 bg-[#0062D6]"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h3 className="text-3xl font-bold mb-4">
+          Ready to Transform Your Business?
+        </h3>
+        <p className="mb-8 max-w-2xl mx-auto text-white/90">
+          Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
+        </p>
+        <Button className="text-lg px-6 py-3 bg-[#FFD700] text-black hover:bg-[#FFC300] rounded-xl font-semibold shadow-lg">
+          Schedule Your Free Consultation
+        </Button>
+      </motion.section>
+
+      {/* Footer */}
+      <footer className="bg-[#004AAD] text-center py-6 text-sm text-white/80">
+        © {new Date().getFullYear()} BizWise. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }
