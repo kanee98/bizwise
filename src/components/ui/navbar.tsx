@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // 🔹 Step 1: Import this
+import { usePathname } from "next/navigation"; 
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname(); // 🔹 Step 2: Get current path
+  const pathname = usePathname(); 
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -19,7 +19,6 @@ export default function Navbar() {
   ];
 
   const isActive = (href: string) => {
-    // For hash links, always return false — they’re not "pages"
     if (href.startsWith("#")) return false;
     return pathname === href;
   };
