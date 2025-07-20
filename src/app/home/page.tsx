@@ -9,7 +9,7 @@ import {
   UserCheck,
   LifeBuoy,
 } from "lucide-react";
-import { useScrollToTop } from "@/hooks/homePage";
+import { useScrollToTop } from "@/hooks/page";
 
 export default function HomePage() {
   useScrollToTop();

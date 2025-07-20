@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useScrollToTop } from "@/hooks/homePage"; 
+import { useScrollToTop } from "@/hooks/page"; 
 import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
