@@ -5,15 +5,19 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useDelayedVisibility } from "@/hooks/homePage";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const showNavbar = useDelayedVisibility(3000); 
 
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Contact Us", href: "#contact" },
   ];
+
+  if (!showNavbar) return null;
 
   return (
     <nav className="sticky top-0 z-50 bg-[#001e41] shadow-lg px-6 py-4">

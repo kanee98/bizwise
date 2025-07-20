@@ -19,3 +19,17 @@ export const usePageLoader = (delay: number = 3000) => {
 
   return loading;
 };
+
+export function useDelayedVisibility(delay: number = 3000): boolean {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return isVisible;
+}
