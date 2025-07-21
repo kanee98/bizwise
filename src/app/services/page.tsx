@@ -58,7 +58,7 @@ export default function ServicesPage() {
     <main className="min-h-screen text-white font-sans pt-20 relative z-10">
       {/* Intro */}
       <motion.section
-        className="max-w-4xl mx-auto text-center mb-20"
+        className="max-w-4xl mx-auto text-center mb-20 px-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -73,7 +73,7 @@ export default function ServicesPage() {
       </motion.section>
 
       {/* Tier Cards */}
-      <section className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3 mb-24">
+      <section className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3 mb-24 px-6 ">
         {tiers.map(({ title, subtitle, description, features, color }, idx) => (
           <motion.article
             key={idx}
@@ -116,7 +116,7 @@ export default function ServicesPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl font-bold text-center mb-8">Compare Our Packages</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 px-6">Compare Our Packages</h2>
         <table className="w-full table-auto text-white border-collapse border border-white/30 rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-white/10">
