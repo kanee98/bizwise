@@ -58,7 +58,7 @@ export default function ServicesPage() {
     <main className="min-h-screen text-white font-sans pt-20 relative z-10">
       {/* Intro */}
       <motion.section
-        className="max-w-4xl mx-auto text-center mb-20 px-6"
+        className="max-w-4xl mx-auto text-left mb-20 px-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -67,7 +67,7 @@ export default function ServicesPage() {
         <h1 className="text-5xl font-extrabold mb-6 leading-tight">
           Our <span className="text-[#4DA3FF]">Services</span>
         </h1>
-        <p className="text-lg text-white/80 max-w-3xl mx-auto">
+        <p className="text-lg text-white/80 max-w-3xl ">
           At BizWise, we tailor service packages to help businesses grow confidently through data-driven decisions and cutting-edge AI solutions.
           Whether you’re starting out or scaling up, we have a plan crafted for you.
         </p>

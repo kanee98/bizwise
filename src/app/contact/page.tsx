@@ -56,10 +56,10 @@ export default function ContactUsPage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center max-w-3xl mx-auto"
+        className="text-left max-w-3xl"
       >
-        <h1 className="text-6xl font-extrabold mb-4 tracking-tight">
-          Get In Touch With Us
+        <h1 className="text-5xl font-extrabold mb-4 leading-tight">
+          Get In <span className="text-[#4DA3FF]">Touch</span> With Us
         </h1>
         <p className="text-lg text-white/80">
           Whether you’re curious about our services or want a personalized demo, we’re ready to help.

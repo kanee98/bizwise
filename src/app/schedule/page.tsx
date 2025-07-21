@@ -51,12 +51,12 @@ export default function SchedulePage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center max-w-3xl mx-auto"
+        className="text-left max-w-3xl mx-auto"
       >
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight">
           Schedule Your Free Consultation
         </h1>
-        <p className="text-lg text-white/80 max-w-xl mx-auto">
+        <p className="text-lg text-white/80 max-w-xl">
           Let’s connect and explore how we can bring your vision to life.
           Book a time that suits you best below.
         </p>
