@@ -24,7 +24,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#001e41] shadow-lg px-6 py-4">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#001e41] shadow-lg px-6 py-4">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}

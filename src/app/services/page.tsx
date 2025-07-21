@@ -62,6 +62,7 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <h1 className="text-5xl font-extrabold mb-6 leading-tight">
           Our <span className="text-[#4DA3FF]">Services</span>
@@ -81,7 +82,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: idx * 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <h2 className="text-3xl font-bold mb-1" style={{ color }}>
               {title}
@@ -100,6 +101,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileHover={{ scale: 1.05, opacity: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Link href="/contact" passHref>         
                   <Button className="...">Learn More</Button>     
@@ -115,6 +117,7 @@ export default function ServicesPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <h2 className="text-3xl font-bold text-center mb-8 px-6">Compare Our Packages</h2>
         <table className="w-full table-auto text-white border-collapse border border-white/30 rounded-lg overflow-hidden">
@@ -160,6 +163,7 @@ export default function ServicesPage() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <h2 className="text-4xl font-bold mb-6">Ready to take your business to the next level?</h2>
         <p className="mb-10 max-w-3xl mx-auto text-white/90 text-lg">
