@@ -16,9 +16,9 @@ export default function HomePage() {
   useScrollToTop();
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
+    <main className="min-h-screen text-white font-sans relative z-10">
       {/* Hero Section */}
-      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto relative z-10">
+      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -53,7 +53,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="text-gray-900 py-20 px-6 relative z-10">
+      <section className="text-gray-900 py-20 px-6">
         <motion.h3
           className="text-3xl font-bold text-center mb-14 text-white"
           initial={{ opacity: 0 }}
@@ -114,19 +114,19 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6] relative z-10"
+        className="text-center py-20 px-6 bg-[#0062D6]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h3 className="text-3xl font-bold mb-4 z-10">
+        <h3 className="text-3xl font-bold mb-4">
           Ready to Transform Your Business?
         </h3>
-        <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
+        <p className="mb-8 max-w-2xl mx-auto text-white/90">
           Let’s talk about how BizWise can deliver real, AI-powered results to help you grow.
         </p>
         <Link href="/schedule">
-          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
+          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg">
             Schedule Your Free Consultation
           </Button>
         </Link>

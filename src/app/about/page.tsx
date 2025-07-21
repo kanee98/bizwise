@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { useScrollToTop } from "@/hooks/page"; 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -9,10 +9,16 @@ import Link from "next/link";
 export default function AboutPage() {
   useScrollToTop();
 
+  const missionRef = useRef(null);
+  const missionInView = useInView(missionRef, { once: true });
+
+  const teamRef = useRef(null);
+  const teamInView = useInView(teamRef, { once: true });
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#001e41] to-[#004AAD] text-white font-sans">
+    <main className="min-h-screen text-white font-sans relative z-10">
       {/* About Hero Section */}
-      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto relative z-10">
+      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto">
         <motion.h2
           className="text-4xl md:text-5xl font-bold leading-tight"
           initial={{ opacity: 0, y: 40 }}
@@ -36,9 +42,10 @@ export default function AboutPage() {
 
       {/* Mission Section */}
       <motion.section
-        className="py-20 px-6 bg-[#004AAD] relative z-10"
+        ref={missionRef}
+        className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl mx-auto"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-4xl mx-auto text-center">
@@ -54,9 +61,10 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <motion.section
-        className="py-20 px-6 relative z-10"
+        ref={teamRef}
+        className="py-20 px-6"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={teamInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="max-w-5xl mx-auto">
@@ -78,9 +86,8 @@ export default function AboutPage() {
                 key={idx}
                 className="bg-[rgba(255,255,255,0.05)] backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/10"
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
-                viewport={{ once: true }}
               >
                 <h4 className="text-xl font-semibold mb-2">{member.name}</h4>
                 <p className="text-[#4DA3FF] mb-2">{member.title}</p>
@@ -93,18 +100,18 @@ export default function AboutPage() {
 
       {/* CTA Section */}
       <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6] relative z-10"
+        className="text-center py-20 px-6 bg-[#0062D6]"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h3 className="text-3xl font-bold mb-4 z-10">Let’s Collaborate</h3>
-        <p className="mb-8 max-w-2xl mx-auto text-white/90 z-10">
+        <h3 className="text-3xl font-bold mb-4">Let’s Collaborate</h3>
+        <p className="mb-8 max-w-2xl mx-auto text-white/90">
           Whether you’re exploring AI for the first time or scaling your data
           operations, we’re here to help you take the next step.
         </p>
         <Link href="/schedule">
-          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg z-10">
+          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg">
             Schedule a Free Consultation
           </Button>
         </Link>
