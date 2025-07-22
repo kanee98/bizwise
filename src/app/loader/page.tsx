@@ -1,8 +1,24 @@
 import React from "react";
+import Image from "next/image";
 
 const BizwiseLoader: React.FC = () => (
   <div id="loading-wrapper">
-    <div id="loading-content"></div> 
+    <div id="loading-content">
+      {/* Rotating ring only */}
+      <div className="spinner-ring"></div>
+
+      {/* Static logo centered */}
+      <div className="logo-overlay">
+        <Image
+          src="/Bizwise Logo No BG - Full.png"
+          alt="Logo"
+          width={150}
+          height={150}
+          className="loader-logo"
+          priority
+        />
+      </div>
+    </div>
 
     <svg
       viewBox="0 0 600 150"
