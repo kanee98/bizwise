@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; 
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,10 +32,15 @@ export default function Navbar() {
         transition={{ duration: 0.6 }}
         className="flex justify-between items-center max-w-7xl mx-auto"
       >
-        <Link href="/">
-          <h1 className="text-2xl font-bold tracking-tight text-white cursor-pointer">
-            BizWise
-          </h1>
+        <Link href="/" className="flex items-center overflow-hidden" style={{ height: 40 }}>
+          <Image
+            src="/Bizwise Logo Text - No BG.png" 
+            alt="BizWise Logo"
+            width={150}     
+            height={50}    
+            className="object-contain transform scale-120" style={{ paddingLeft: 10, paddingRight: 10 }}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
