@@ -99,7 +99,7 @@ export default function SchedulePage() {
 
       {/* Calendly Embed */}
       <motion.section
-        className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-lg"
+        className="w-full max-w-4xl mx-auto bg-white/5 backdrop-blur-lg rounded-3xl p-4 sm:p-6 border border-white/20 shadow-lg overflow-hidden"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -107,7 +107,7 @@ export default function SchedulePage() {
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/kaniyouth/consultation"
-          style={{ minWidth: "320px", height: "700px" }}
+          style={{ width: "100%", minWidth: "0", height: "700px" }}
         ></div>
       </motion.section>
 
