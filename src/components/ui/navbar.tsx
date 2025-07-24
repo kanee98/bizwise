@@ -36,9 +36,9 @@ export default function Navbar() {
           <Image
             src="/Bizwise Logo Text - No BG.png" 
             alt="BizWise Logo"
-            width={0}     
-            height={0}    
-            className="object-contain w-32 h-auto md:w-40" 
+            width={100}     
+            height={100}    
+            className="object-contain transform scale-120 w-32 h-auto md:w-40" 
             style={{ paddingLeft: 10, paddingRight: 10 }}
             priority
           />
