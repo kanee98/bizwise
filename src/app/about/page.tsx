@@ -41,34 +41,43 @@ export default function AboutPage() {
         </motion.p>
       </section>
 
-{/* Mission Section */}
-<motion.section
-  ref={missionRef}
-  className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl sm:mx-auto mx-6"
-  initial={{ opacity: 0 }}
-  animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <div className="max-w-4xl mx-auto text-center">
-    <h3 className="text-3xl font-bold mb-6">Our Core Values</h3>
-    <div className="text-white/90 text-lg leading-relaxed">
-      <ul className="space-y-4 text-left max-w-md mx-auto">
-        {[
-          "Insight-driven",
-          "Client-centric",
-          "Innovative",
-          "Actionable",
-          "Growth-focused",
-        ].map((value, idx) => (
-          <li key={idx} className="flex items-start gap-3">
-            <CheckCircle className="text-white/80 w-5 h-5 mt-1" />
-            <span className="text-white">{value}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-</motion.section>
+      {/* Mission and Core ValuesSection */}
+      <motion.section
+        ref={missionRef}
+        className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl sm:mx-auto mx-6"
+        initial={{ opacity: 0 }}
+        animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
+          <div className="text-white/90 text-lg leading-relaxed">
+            <p className="text-white/90 text-lg leading-relaxed">
+              To empower Sri Lankan businesses by making data intelligence
+              accessible, affordable, and impactful. We aim to transform raw
+              information into actionable insight using the latest AI tools,
+              enabling smarter decisions and sustainable growth.
+            </p>
+          </div><br></br><br></br>
+          <h3 className="text-3xl font-bold mb-6">Our Core Values</h3>
+          <div className="text-white/90 text-lg leading-relaxed">
+            <ul className="space-y-4 text-left max-w-md mx-auto">
+              {[
+                "Insight-driven",
+                "Client-centric",
+                "Innovative",
+                "Actionable",
+                "Growth-focused",
+              ].map((value, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <CheckCircle className="text-white/80 w-5 h-5 mt-1" />
+                  <span className="text-white">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Team Section */}
       <motion.section
