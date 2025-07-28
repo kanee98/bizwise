@@ -34,12 +34,12 @@ export default function Navbar() {
       >
         <Link href="/" className="flex items-center overflow-hidden" style={{ height: 40 }}>
           <Image
-            src="/Bizwise Logo Text - No BG.png" 
+            src="/Bizwise Logo Text - No BG.png"
             alt="BizWise Logo"
-            width={100}     
-            height={100}    
-            className="object-contain transform scale-120 w-32 h-auto md:w-40" 
-            style={{ paddingLeft: 10, paddingRight: 10 }}
+            width={200} // Load 2x resolution
+            height={200} // Load 2x resolution
+            className="object-contain w-[160px] h-auto md:w-[160px]" // Display as smaller size
+            style={{ marginLeft: 10, marginRight: 10 }}
             quality={100}
             priority
           />
