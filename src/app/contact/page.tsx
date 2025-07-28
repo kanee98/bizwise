@@ -80,20 +80,20 @@ export default function ContactUsPage() {
           <div className="flex flex-col gap-6 text-white/90">
             <div className="flex items-center gap-4">
               <Phone className="text-[#4DA3FF]" size={24} />
-              <a href="tel:+94112345678" className="hover:text-[#4DA3FF] transition">
-                +94 11 234 5678
+              <a href="tel:+94 76 629 0934" className="hover:text-[#4DA3FF] transition">
+                +94 76 629 0934
               </a>
             </div>
             <div className="flex items-center gap-4">
               <Mail className="text-[#4DA3FF]" size={24} />
               <a href="mailto:info@bizwise.lk" className="hover:text-[#4DA3FF] transition">
-                info@bizwise.lk
+                contact@bizwise.lk
               </a>
             </div>
             <div className="flex items-center gap-4">
               <MapPin className="text-[#4DA3FF]" size={24} />
               <address className="not-italic">
-                123 AI Street, Colombo 07, Sri Lanka
+                374/4/1 Narendrasinghe Lane, Habarakada Watta, Homagama, Sri Lanka
               </address>
             </div>
           </div>

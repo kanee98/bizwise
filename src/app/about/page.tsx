@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useScrollToTop } from "@/hooks/page"; 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 export default function AboutPage() {
   useScrollToTop();
@@ -40,24 +41,34 @@ export default function AboutPage() {
         </motion.p>
       </section>
 
-      {/* Mission Section */}
-      <motion.section
-        ref={missionRef}
-        className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl mx-auto"
-        initial={{ opacity: 0 }}
-        animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
-          <p className="text-white/90 text-lg leading-relaxed">
-            To empower Sri Lankan businesses by making data intelligence
-            accessible, affordable, and impactful. We aim to transform raw
-            information into actionable insight using the latest AI tools,
-            enabling smarter decisions and sustainable growth.
-          </p>
-        </div>
-      </motion.section>
+{/* Mission Section */}
+<motion.section
+  ref={missionRef}
+  className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl sm:mx-auto mx-6"
+  initial={{ opacity: 0 }}
+  animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <div className="max-w-4xl mx-auto text-center">
+    <h3 className="text-3xl font-bold mb-6">Our Core Values</h3>
+    <div className="text-white/90 text-lg leading-relaxed">
+      <ul className="space-y-4 text-left max-w-md mx-auto">
+        {[
+          "Insight-driven",
+          "Client-centric",
+          "Innovative",
+          "Actionable",
+          "Growth-focused",
+        ].map((value, idx) => (
+          <li key={idx} className="flex items-start gap-3">
+            <CheckCircle className="text-white/80 w-5 h-5 mt-1" />
+            <span className="text-white">{value}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</motion.section>
 
       {/* Team Section */}
       <motion.section
@@ -73,13 +84,13 @@ export default function AboutPage() {
             {[
               {
                 name: "Danesh Jayasinghe",
-                title: "Founder & Data Strategist",
+                title: "Data Strategist & Data Protection Officer (Founder) ",
                 bio: "10+ years in analytics and business development. Passionate about helping local businesses scale with data.",
               },
               {
-                name: "Padmapriya Jayasinghe",
-                title: "Lead AI Engineer",
-                bio: "Machine learning expert with a focus on predictive modeling, NLP, and customer behavior analysis.",
+                name: "Nilal Fernando ",
+                title: "Lead Analyst",
+                bio: "Bringing over 12 years of experience primarily from the finance industry. Nilal is dedicated to empowering clients to leverage their data for strategic decision-making and sustainable growth.",
               },
             ].map((member, idx) => (
               <motion.div

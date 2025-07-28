@@ -106,7 +106,7 @@ export default function SchedulePage() {
       >
         <div
           className="calendly-inline-widget"
-          data-url="https://calendly.com/kaniyouth/consultation"
+          data-url="https://calendly.com/contact-bizwise/30min"
           style={{ width: "100%", minWidth: "0", height: "700px" }}
         ></div>
       </motion.section>

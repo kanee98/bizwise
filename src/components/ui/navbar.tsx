@@ -40,6 +40,7 @@ export default function Navbar() {
             height={100}    
             className="object-contain transform scale-120 w-32 h-auto md:w-40" 
             style={{ paddingLeft: 10, paddingRight: 10 }}
+            quality={100}
             priority
           />
         </Link>

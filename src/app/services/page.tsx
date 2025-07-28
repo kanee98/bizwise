@@ -170,7 +170,8 @@ export default function ServicesPage() {
           Get in touch with our team today and discover how BizWise can help you unlock the power of data and AI to grow smarter and faster.
         </p>
         <Link href="/schedule">
-          <Button className="text-lg px-8 py-4 bg-[#4DA3FF] hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg">
+          <Button className="text-lg px-8 py-4 bg-[#4DA3FF] hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg"
+            style={{ width: '20rem' }}>
             Schedule Your Free Consultation
           </Button>
         </Link>
