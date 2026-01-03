@@ -1,6 +1,6 @@
 "use client";
 import Home from "@/app/home/page";
-import Loader from "@/app/loader/page";
+import Loader from "@/app/(internal)/loader/page";
 import { usePageLoader } from "@/hooks/page";
 
 export default function Pages() {

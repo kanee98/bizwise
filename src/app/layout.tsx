@@ -5,7 +5,7 @@ import '../../styles/CircuitMaster.css'
 
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
-import CircuitBackground from "@/app/canvas/page";
+import CircuitBackground from "@/app/(internal)/canvas/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

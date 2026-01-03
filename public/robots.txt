@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /canvas
+Disallow: /loader
+
+# Host
+Host: https://bizwise.lk
+
+# Sitemaps
+Sitemap: https://bizwise.lk/sitemap.xml
