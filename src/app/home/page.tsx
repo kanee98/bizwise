@@ -25,7 +25,7 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Empowering Sri Lankan <br />
+          Empowering Sri Lankan & Global<br />
           Businesses with <br />
           <span className="text-[#4DA3FF]">AI-Driven Insights</span>
         </motion.h2>
@@ -36,7 +36,8 @@ export default function HomePage() {
           transition={{ delay: 0.4 }}
         >
           Organize, predict, and grow — all powered by intelligent data
-          solutions tailored just for your business.
+          solutions tailored just for your business. We excel in Data Analytics, 
+          AI consulting, and Business Intelligence.
         </motion.p>
         <motion.div
           className="mt-8"

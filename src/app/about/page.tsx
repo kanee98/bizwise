@@ -37,7 +37,10 @@ export default function AboutPage() {
           BizWise is a Sri Lankan AI consultancy dedicated to helping local
           businesses harness the power of data. From small startups to
           established enterprises, we provide intelligent, cost-effective
-          solutions tailored to the local market and culture.
+          solutions tailored to the local market and culture. We specialise 
+          in AI Consulting for SMEs, Business Intelligence for startups, 
+          Predictive analytics for businesses, Sales forecasting analytics 
+          & Customer sentiment analysis. 
         </motion.p>
       </section>
 
@@ -53,7 +56,7 @@ export default function AboutPage() {
           <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
           <div className="text-white/90 text-lg leading-relaxed">
             <p className="text-white/90 text-lg leading-relaxed">
-              To empower Sri Lankan businesses by making data intelligence
+              To empower Sri Lankan & Global businesses by making data intelligence
               accessible, affordable, and impactful. We aim to transform raw
               information into actionable insight using the latest AI tools,
               enabling smarter decisions and sustainable growth.

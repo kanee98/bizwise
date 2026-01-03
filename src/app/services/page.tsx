@@ -69,6 +69,7 @@ export default function ServicesPage() {
         </h1>
         <p className="text-lg text-white/80 max-w-3xl ">
           At BizWise, we tailor service packages to help businesses grow confidently through data-driven decisions and cutting-edge AI solutions.
+          We believe that businesses could benefit from AI & Analytics, which will enhance decision making and digital transformation.
           Whether you’re starting out or scaling up, we have a plan crafted for you.
         </p>
       </motion.section>
