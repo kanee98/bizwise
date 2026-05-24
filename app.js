@@ -1,26 +1,30 @@
 const express = require("express");
 const next = require("next");
 
-const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const port = Number(process.env.PASSENGER_APP_PORT || process.env.PORT || 3000);
+const host = "0.0.0.0";
 
-app.prepare().then(() => {
-  const server = express();
+app
+  .prepare()
+  .then(() => {
+    const server = express();
 
-  // Example custom API route
-  server.get("/api/hello", (req, res) => {
-    res.json({ message: "Hello from Express!" });
+    server.get("/api/hello", (req, res) => {
+      res.json({ message: "Hello from Express!" });
+    });
+
+    server.all("*", (req, res) => {
+      return handle(req, res);
+    });
+
+    server.listen(port, host, () => {
+      console.log(`> Ready on http://${host}:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Startup failure:", err);
+    process.exit(1);
   });
-
-  // Let Next.js handle all other routes
-  server.all("*", (req, res) => {
-    return handle(req, res);
-  });
-
-  // Start the server
-  server.listen(port, () => {
-    console.log(`> Ready on http://localhost:${port}`);
-  });
-});
