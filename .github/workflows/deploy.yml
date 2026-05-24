@@ -27,14 +27,7 @@ jobs:
         run: npm run build
 
       - name: Package app
-        run: |
-          tar -czf release.tar.gz \
-            --exclude=.git \
-            --exclude=.github \
-            --exclude=node_modules \
-            --exclude=.next \
-            --exclude=release.tar.gz \
-            .
+        run: git archive --format=tar.gz --output=release.tar.gz HEAD
 
       - name: Upload package to server
         uses: appleboy/scp-action@v0.1.7
