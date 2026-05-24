@@ -1,0 +1,59 @@
+name: Build Next.js Linux Artifact
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+        env:
+          NODE_ENV: production
+          NEXT_TELEMETRY_DISABLED: "1"
+
+      - name: Prepare deploy package
+        run: |
+          mkdir -p deploy
+          cp -r .next deploy/
+          cp -r public deploy/
+          cp package.json deploy/
+          cp package-lock.json deploy/
+          cp app.js deploy/
+          cp next.config.ts deploy/
+          cp next-sitemap.config.js deploy/
+
+      - name: Create tarball
+        run: |
+          tar -czf bizwise-linux-build.tar.gz -C deploy .
+
+      - name: Verify package contents
+        run: |
+          test -f deploy/app.js
+          test -d deploy/.next
+          test -d deploy/public
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bizwise-linux-build-${{ github.run_number }}
+          include-hidden-files: true
+          path: bizwise-linux-build.tar.gz
