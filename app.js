@@ -1,30 +1,48 @@
-const express = require("express");
-const next = require("next");
+const fs = require("fs");
+const path = require("path");
 
-const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
-const handle = app.getRequestHandler();
-const port = Number(process.env.PASSENGER_APP_PORT || process.env.PORT || 3000);
-const host = "0.0.0.0";
+const logDir = path.join(process.cwd(), "tmp");
+const logFile = path.join(logDir, "runtime.log");
+const standaloneServer = path.join(
+  process.cwd(),
+  ".next",
+  "standalone",
+  "server.js"
+);
 
-app
-  .prepare()
-  .then(() => {
-    const server = express();
+function log(message) {
+  try {
+    if (!fs.existsSync(logDir)) fs.mkdirSync(logDir, { recursive: true });
+    fs.appendFileSync(logFile, `[${new Date().toISOString()}] ${message}\n`);
+  } catch (_) {}
+}
 
-    server.get("/api/hello", (req, res) => {
-      res.json({ message: "Hello from Express!" });
-    });
+process.on("uncaughtException", (err) => {
+  log(`uncaughtException: ${err?.stack || err}`);
+  process.exit(1);
+});
 
-    server.all("*", (req, res) => {
-      return handle(req, res);
-    });
+process.on("unhandledRejection", (err) => {
+  log(`unhandledRejection: ${err?.stack || err}`);
+  process.exit(1);
+});
 
-    server.listen(port, host, () => {
-      console.log(`> Ready on http://${host}:${port}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Startup failure:", err);
-    process.exit(1);
-  });
+try {
+  const port = String(process.env.PASSENGER_APP_PORT || process.env.PORT || 3000);
+  process.env.PORT = port;
+  process.env.HOSTNAME = process.env.HOSTNAME || "0.0.0.0";
+  process.env.NODE_ENV = process.env.NODE_ENV || "production";
+
+  log(`BOOT start cwd=${process.cwd()} node=${process.version} port=${port}`);
+  log(`BOOT standalone path=${standaloneServer}`);
+
+  if (!fs.existsSync(standaloneServer)) {
+    throw new Error(`Standalone server not found at ${standaloneServer}`);
+  }
+
+  log("BOOT requiring standalone server");
+  require(standaloneServer);
+} catch (err) {
+  log(`BOOT failure: ${err?.stack || err}`);
+  throw err;
+}

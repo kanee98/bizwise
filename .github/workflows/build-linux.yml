@@ -33,13 +33,12 @@ jobs:
       - name: Prepare deploy package
         run: |
           mkdir -p deploy
-          cp -r .next deploy/
+          cp -r .next/standalone deploy/
+          mkdir -p deploy/standalone/.next
+          cp -r .next/static deploy/standalone/.next/static
           cp -r public deploy/
-          cp package.json deploy/
-          cp package-lock.json deploy/
           cp app.js deploy/
-          cp next.config.ts deploy/
-          cp next-sitemap.config.js deploy/
+          mkdir -p deploy/tmp
 
       - name: Create tarball
         run: |
@@ -48,7 +47,8 @@ jobs:
       - name: Verify package contents
         run: |
           test -f deploy/app.js
-          test -d deploy/.next
+          test -f deploy/standalone/server.js
+          test -d deploy/standalone/.next/static
           test -d deploy/public
 
       - name: Upload artifact
