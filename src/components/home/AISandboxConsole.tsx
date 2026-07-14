@@ -130,7 +130,7 @@ export default function AISandboxConsole() {
       </div>
 
       <div className="glow-border-moving rounded-3xl overflow-hidden border border-white/10 shadow-2xl p-6 md:p-8 bg-[#0a1128]/70">
-        
+
         {/* Navigation Tabs */}
         <div className="flex flex-col md:flex-row gap-3 border-b border-white/15 pb-6">
           {tabs.map((tab) => {
@@ -140,11 +140,10 @@ export default function AISandboxConsole() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center gap-3 text-left p-4 rounded-2xl transition duration-300 ${
-                  active 
-                    ? "bg-[#007BFF]/10 border border-[#007BFF]/40 text-[#4DA3FF]" 
+                className={`flex-1 flex items-center gap-3 text-left p-4 rounded-2xl transition duration-300 ${active
+                    ? "bg-[#007BFF]/10 border border-[#007BFF]/40 text-[#4DA3FF]"
                     : "bg-white/5 border border-transparent hover:bg-white/10 text-white/70"
-                }`}
+                  }`}
               >
                 <div className={`p-2.5 rounded-xl ${active ? "bg-[#007BFF]/20 text-[#4DA3FF]" : "bg-white/5 text-white/60"}`}>
                   <Icon size={20} />
@@ -160,7 +159,7 @@ export default function AISandboxConsole() {
 
         {/* Tab Display Console */}
         <div className="grid md:grid-cols-5 gap-8 pt-8">
-          
+
           {/* Controls & Metrics */}
           <div className="md:col-span-2 flex flex-col justify-between gap-6">
             <div>
@@ -201,7 +200,7 @@ export default function AISandboxConsole() {
                   <span>{progress}%</span>
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     className="bg-[#007BFF] h-full"
                     animate={{ width: `${progress}%` }}
                     transition={{ ease: "easeInOut" }}
@@ -222,7 +221,7 @@ export default function AISandboxConsole() {
                 </div>
                 <span className="text-[10px] text-white/30">bizwise_agent_terminal.log</span>
               </div>
-              
+
               <div className="space-y-2.5 overflow-y-auto max-h-[220px]">
                 {logMessages.map((msg, i) => {
                   const isSuccessMsg = msg.includes("Completed") || msg.includes("Pipeline online") || msg.includes("Positive Sentiment");
@@ -275,6 +274,7 @@ export default function AISandboxConsole() {
         </div>
 
       </div>
+      <br></br>
     </div>
   );
 }

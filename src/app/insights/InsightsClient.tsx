@@ -85,7 +85,7 @@ export default function InsightsClient() {
     <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10">
       
       {/* Intro Header */}
-      <section className="max-w-4xl mx-auto px-6 text-left mb-12">
+      <section className="max-w-6xl mx-auto px-6 text-left mb-12">
         <div className="text-xs md:text-sm font-semibold text-[#4DA3FF] uppercase tracking-widest mb-3">
           Knowledge Base
         </div>
