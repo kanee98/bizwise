@@ -44,7 +44,7 @@ export default function ContactClient() {
   };
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-28 pb-20">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-28 pb-20 bg-spotlight">
       
       {/* Contact Header */}
       <section className="max-w-4xl mx-auto text-left mb-16 px-6">
@@ -198,7 +198,7 @@ export default function ContactClient() {
                     name="name"
                     placeholder="E.g., Arosha Wickramasinghe"
                     required
-                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-[#4DA3FF] transition duration-200"
+                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-[#007BFF] focus:shadow-[0_0_15px_rgba(0,123,255,0.15)] transition duration-200"
                   />
                 </div>
                 
@@ -209,7 +209,7 @@ export default function ContactClient() {
                     name="email"
                     placeholder="E.g., founder@apparel.lk"
                     required
-                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-[#4DA3FF] transition duration-200"
+                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-[#007BFF] focus:shadow-[0_0_15px_rgba(0,123,255,0.15)] transition duration-200"
                   />
                 </div>
 
@@ -220,13 +220,13 @@ export default function ContactClient() {
                     placeholder="Briefly describe your requirements or the systems you use..."
                     rows={5}
                     required
-                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 resize-none focus:outline-none focus:border-[#4DA3FF] transition duration-200"
+                    className="w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3.5 text-white placeholder-white/20 resize-none focus:outline-none focus:border-[#007BFF] focus:shadow-[0_0_15px_rgba(0,123,255,0.15)] transition duration-200"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#007BFF] hover:bg-[#4DA3FF] font-bold py-4 rounded-xl shadow-lg shadow-blue-500/10 btn-cta glow-btn text-white"
+                  className="w-full bg-[#007BFF] hover:bg-[#0054ad] text-white font-bold py-4 rounded-xl shadow-lg btn-cta glow-btn transition-all duration-300"
                   data-cta="contact_submit"
                   disabled={formStatus === "sending"}
                 >
@@ -248,7 +248,7 @@ export default function ContactClient() {
             You can skip the contact form and book a 30-minute discovery call directly on our calendar.
           </p>
           <Link href="/schedule">
-            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="contact_bottom_schedule">
+            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="contact_bottom_schedule">
               Book a Discovery Call
             </Button>
           </Link>

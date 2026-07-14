@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, MessageSquare } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#000b18] text-white border-t border-white/10 pt-16 pb-8 px-6 mt-auto">
+    <footer className="w-full bg-[#0a1128] text-white border-t border-white/10 pt-16 pb-8 px-6 mt-auto">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         {/* Branding Column */}
         <div className="flex flex-col gap-4">

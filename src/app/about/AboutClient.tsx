@@ -17,7 +17,7 @@ export default function AboutClient() {
   const teamInView = useInView(teamRef, { once: true, amount: 0.1 });
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-24">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-24 bg-spotlight">
       
       {/* About Hero Section */}
       <section className="flex flex-col text-left px-6 py-20 max-w-4xl mx-auto">
@@ -198,7 +198,7 @@ export default function AboutClient() {
             Ready to find out if your business is prepared for a Power BI dashboard or custom AI automation? Let&apos;s discuss your current systems.
           </p>
           <Link href="/schedule">
-            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg shadow-blue-500/20" data-cta="about_consult">
+            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="about_consult">
               Schedule Your Call Now
             </Button>
           </Link>

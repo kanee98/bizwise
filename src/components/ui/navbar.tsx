@@ -44,14 +44,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4 ${
-        isScrolled 
-          ? "bg-[#001124]/80 backdrop-blur-md border-b border-white/10 shadow-lg" 
-          : "bg-transparent"
-      }`}
-    >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+    <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 py-4 md:py-6">
+      <div 
+        className={`flex justify-between items-center w-full mx-auto transition-all duration-500 px-6 py-3 rounded-full ${
+          isScrolled 
+            ? "glass-panel border border-white/10 shadow-[0_0_30px_rgba(0,123,255,0.12)] max-w-5xl" 
+            : "bg-transparent border border-transparent max-w-7xl"
+        }`}
+      >
         <Link href="/" className="flex items-center overflow-hidden" style={{ height: 40 }}>
           <Image
             src="/Bizwise Logo Text - No BG.png"
@@ -81,7 +81,7 @@ export default function Navbar() {
               {isActive(link.href) && (
                 <motion.span 
                   layoutId="activeNavIndicator" 
-                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#4DA3FF]"
+                  className="absolute bottom-0 left-0 w-full h-[2px] bg-[#007BFF]"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -100,7 +100,7 @@ export default function Navbar() {
                   href={ind.href}
                   className={`block px-4 py-2 text-sm rounded-xl transition-colors ${
                     pathname === ind.href 
-                      ? "bg-[#007BFF] text-white" 
+                      ? "bg-[#007BFF] text-white font-semibold" 
                       : "text-white/80 hover:bg-white/10 hover:text-white"
                   }`}
                 >
@@ -111,7 +111,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/schedule">
-            <Button className="bg-[#007BFF] hover:bg-[#4DA3FF] px-5 py-2 text-sm rounded-xl font-semibold btn-cta glow-btn shadow-md shadow-blue-500/20" data-cta="nav_schedule">
+            <Button className="bg-[#007BFF] hover:bg-[#0054ad] text-white transition-all duration-300 px-5 py-2 text-sm rounded-xl font-semibold btn-cta glow-btn shadow-md shadow-blue-500/20" data-cta="nav_schedule">
               Free Consultation
             </Button>
           </Link>
@@ -137,7 +137,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden mt-4 flex flex-col gap-2 bg-[#001124]/95 backdrop-blur-lg rounded-2xl p-4 border border-white/10 shadow-xl"
+            className="md:hidden overflow-hidden mt-4 flex flex-col gap-2 bg-[#0a1128]/95 backdrop-blur-lg rounded-2xl p-4 border border-white/10 shadow-xl"
           >
             {navLinks.map((link) => (
               <Link
@@ -161,7 +161,7 @@ export default function Navbar() {
                     key={ind.label}
                     href={ind.href}
                     className={`text-sm py-1.5 text-white/70 hover:text-white block ${
-                      pathname === ind.href ? "text-[#4DA3FF] font-medium" : ""
+                      pathname === ind.href ? "text-[#007BFF] font-medium" : ""
                     }`}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -174,7 +174,7 @@ export default function Navbar() {
             <div className="mt-2 border-t border-white/10 pt-4">
               <Link href="/schedule" className="block w-full">
                 <Button
-                  className="bg-[#007BFF] hover:bg-[#4DA3FF] px-4 py-3 text-base font-semibold rounded-xl w-full text-center btn-cta"
+                  className="bg-[#007BFF] hover:bg-[#0054ad] text-white px-4 py-3 text-base font-semibold rounded-xl w-full text-center btn-cta transition-all"
                   data-cta="mobile_nav_schedule"
                   onClick={() => setMenuOpen(false)}
                 >

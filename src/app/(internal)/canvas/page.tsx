@@ -89,8 +89,8 @@ class Line {
       context.shadowOffsetX = 0;
       context.shadowOffsetY = 0;
 
-      context.fillStyle = "#094e99ff";
-      context.arc(node.x, node.y, 5, 0, TWO_PI);
+      context.fillStyle = "rgba(0, 188, 255, 0.15)";
+      context.arc(node.x, node.y, 2.5, 0, TWO_PI);
       context.fill();
       context.restore();
     }
@@ -149,6 +149,7 @@ const CanvasAnimation: React.FC = () => {
   const linesRef = useRef<Line[]>([]);
   const frameRef = useRef(0);
   const gradientRef = useRef<CanvasGradient | null>(null);
+  const mouseRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -164,7 +165,16 @@ const CanvasAnimation: React.FC = () => {
 
     document.documentElement.style.cssText = "margin:0;padding:0;height:100%";
     document.body.style.cssText =
-      "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#001e41 0%,#001e41 100%);";
+      "height:100%;margin:0;padding:0;background-image:linear-gradient(-180deg,#0a1128 0%,#0a1128 100%);";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    };
+    window.addEventListener("mousemove", handleMouseMove);
 
     const resize = () => {
       const canvas = canvasRef.current;
@@ -182,29 +192,28 @@ const CanvasAnimation: React.FC = () => {
       canvas.style.height = `${height}px`;
 
       const gradient = ctx.createLinearGradient(width * 0.25, 0, width * 0.75, 0);
-      gradient.addColorStop(0, "#023d64");
-      gradient.addColorStop(1, "#0054ad");
+      gradient.addColorStop(0, "rgba(0, 188, 255, 0.08)");
+      gradient.addColorStop(1, "rgba(0, 123, 255, 0.08)");
       gradientRef.current = gradient;
     };
 
-
-    resize();
     window.addEventListener("resize", resize);
+    resize();
 
     const draw = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
       const ctx = canvas.getContext("2d");
-      if (!ctx || !gradientRef.current) return;
+      if (!ctx) return;
 
       const width = canvas.width;
       const height = canvas.height;
 
       ctx.clearRect(0, 0, width, height);
       ctx.lineCap = "round";
-      ctx.strokeStyle = gradientRef.current;
-      ctx.fillStyle = "#006eff";
+      ctx.strokeStyle = gradientRef.current || "rgba(0, 188, 255, 0.08)";
+      ctx.fillStyle = "rgba(0, 188, 255, 0.15)";
 
       linesRef.current = linesRef.current.filter((line) => {
         line.step(width, height);
@@ -212,6 +221,25 @@ const CanvasAnimation: React.FC = () => {
       });
 
       linesRef.current.forEach((line) => line.draw(ctx, frameRef.current));
+
+      // Draw cursor connections
+      const mouse = mouseRef.current;
+      linesRef.current.forEach((line) => {
+        line.path.forEach((node) => {
+          const dx = node.x - mouse.x;
+          const dy = node.y - mouse.y;
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 22500) { // 150px range
+            const dist = Math.sqrt(distSq);
+            ctx.beginPath();
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(0, 188, 255, ${0.12 * (1 - dist / 150)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        });
+      });
 
       if (frameRef.current % 12 === 0) {
         const x = random(0, width);
@@ -229,6 +257,7 @@ const CanvasAnimation: React.FC = () => {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

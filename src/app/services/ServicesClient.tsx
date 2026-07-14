@@ -14,7 +14,7 @@ export default function ServicesClient() {
       link: "/services/ai-consulting-sme",
       ctaText: "Read our AI Consulting SME strategy",
       icon: Brain,
-      color: "#4DA3FF"
+      color: "#3b82f6"
     },
     {
       title: "Business Intelligence",
@@ -22,7 +22,7 @@ export default function ServicesClient() {
       link: "/services/business-intelligence",
       ctaText: "Explore our Startup Business Intelligence setups",
       icon: BarChart3,
-      color: "#70D6FF"
+      color: "#00c8ff"
     },
     {
       title: "Sales Forecasting & Predictive Analytics",
@@ -30,7 +30,7 @@ export default function ServicesClient() {
       link: "/services/sales-forecasting",
       ctaText: "Consult our Sales Forecasting solutions",
       icon: TrendingUp,
-      color: "#1786FF"
+      color: "#2563eb"
     },
     {
       title: "Customer Sentiment Analysis",
@@ -38,12 +38,12 @@ export default function ServicesClient() {
       link: "/services/customer-sentiment-analysis",
       ctaText: "Request a Customer Sentiment analysis demo",
       icon: MessageSquare,
-      color: "#00E5FF"
+      color: "#0d9488"
     }
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10">
+    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-spotlight">
       
       {/* Intro Header */}
       <section className="max-w-4xl mx-auto text-left mb-16 px-6">
@@ -111,7 +111,7 @@ export default function ServicesClient() {
               <div className="pt-4 border-t border-white/5">
                 <Link href={srv.link} className="w-full inline-block">
                   <Button 
-                    className="w-full flex items-center justify-between text-sm px-6 py-5 rounded-xl font-bold transition-all duration-300 btn-cta shadow-lg shadow-blue-500/5 text-white bg-white/5 hover:bg-white/15 hover:text-white border border-white/10"
+                    className="w-full flex items-center justify-between text-sm px-6 py-5 rounded-xl font-bold transition-all duration-300 btn-cta text-white bg-white/5 hover:bg-[#007BFF] hover:text-white border border-white/10 hover:border-[#007BFF]/40"
                     data-cta={`hub_go_${idx}`}
                   >
                     <span>{srv.ctaText}</span>
@@ -134,7 +134,7 @@ export default function ServicesClient() {
             Get in touch with us to organize a custom readiness review. We will map your operational tools and design a blueprint tailored for your goals.
           </p>
           <Link href="/contact">
-            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg shadow-blue-500/20" data-cta="services_hub_contact">
+            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="services_hub_contact">
               Talk to Our Team
             </Button>
           </Link>

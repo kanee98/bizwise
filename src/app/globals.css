@@ -117,7 +117,7 @@
     @apply border-border outline-ring/50;
   }
   body, html {
-    background-color: #001124;
+    background-color: #0a1128;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
@@ -125,43 +125,59 @@
 
 /* Glassmorphism & Custom Gradient Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: rgba(10, 17, 40, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 188, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
 
 .glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-panel-hover:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(77, 163, 255, 0.3);
-  box-shadow: 0 12px 40px 0 rgba(0, 74, 173, 0.25);
-  transform: translateY(-2px);
+  background: rgba(10, 17, 40, 0.75);
+  border-color: rgba(0, 188, 255, 0.28);
+  box-shadow: 0 12px 40px 0 rgba(0, 123, 255, 0.15);
+  transform: translateY(-4px);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 30%, #a5c7f7 100%);
+  background: linear-gradient(135deg, #ffffff 40%, #00bcff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-blue {
-  background: linear-gradient(135deg, #4DA3FF 0%, #007BFF 100%);
+  background: linear-gradient(135deg, #00d2ff 0%, #0054ad 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 74, 173, 0.15) 0%, transparent 80%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 188, 255, 0.1) 0%, transparent 70%);
+}
+
+.bg-spotlight {
+  background: radial-gradient(circle at 10% 20%, rgba(0, 188, 255, 0.06) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(0, 123, 255, 0.06) 0%, transparent 40%),
+              #0a1128;
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 188, 255, 0.15);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.15);
 }
 
 .glow-btn {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 188, 255, 0.2) !important;
+  box-shadow: 0 0 10px rgba(0, 188, 255, 0.1) !important;
 }
 .glow-btn::after {
   content: '';
@@ -172,13 +188,18 @@
   height: 100%;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(0, 188, 255, 0) 0%,
+    rgba(0, 188, 255, 0.2) 50%,
+    rgba(0, 188, 255, 0) 100%
   );
   transform: skewX(-25deg);
   transition: 0.75s;
   opacity: 0;
+}
+.glow-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.35) !important;
+  border-color: rgba(0, 188, 255, 0.5) !important;
+  transform: translateY(-1px);
 }
 .glow-btn:hover::after {
   opacity: 1;
@@ -187,15 +208,57 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #001124;
+  background: #0a1128;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+  background: rgba(0, 188, 255, 0.2);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 188, 255, 0.4);
+}
+
+/* Moving Border Gradients & Marquee Animations */
+@keyframes borderGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.glow-border-moving {
+  position: relative;
+  background: rgba(10, 17, 40, 0.6);
+}
+
+.glow-border-moving::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(0, 188, 255, 0.15), rgba(0, 123, 255, 0.35), rgba(0, 188, 255, 0.15));
+  background-size: 200% auto;
+  animation: borderGradient 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

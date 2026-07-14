@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Database, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, Table } from "lucide-react";
+import { Sparkles, Database, CheckCircle2, ChevronDown, ChevronUp, ArrowRight, Table, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useScrollToTop } from "@/hooks/page";
@@ -29,6 +29,7 @@ export default function BIClient() {
   // Interactive Dashboard States
   const [timeframe, setTimeframe] = useState<"Q1" | "Q2" | "Q3">("Q1");
   const [industryFilter, setIndustryFilter] = useState<"Retail" | "FMCG">("Retail");
+  const [simView, setSimView] = useState<"metrics" | "pipeline">("metrics");
 
   const data = {
     Q1: {
@@ -54,12 +55,12 @@ export default function BIClient() {
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10">
+    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-spotlight">
       
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-6 text-left mb-16">
         <Link href="/services" className="inline-flex items-center gap-1 text-sm font-semibold text-[#4DA3FF] hover:underline mb-6">
-          ← Back to Services Hub
+          &larr; Back to Services Hub
         </Link>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -91,7 +92,7 @@ export default function BIClient() {
           transition={{ delay: 0.4 }}
         >
           <Link href="/schedule">
-            <Button className="px-6 py-5 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg shadow-blue-500/10" data-cta="bi_hero_consult">
+            <Button className="px-6 py-5 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="bi_hero_consult">
               Schedule a Dashboard Consultation
             </Button>
           </Link>
@@ -110,58 +111,174 @@ export default function BIClient() {
         <div className="glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
           {/* Dashboard Controls */}
           <div className="bg-white/5 border-b border-white/10 p-4 flex flex-wrap justify-between items-center gap-4">
-            <div className="flex gap-2">
-              <span className="text-xs font-semibold text-white/40 uppercase self-center mr-2">Timeframe</span>
-              {(["Q1", "Q2", "Q3"] as const).map((q) => (
-                <button
-                  key={q}
-                  onClick={() => setTimeframe(q)}
-                  className={`text-xs px-3 py-1.5 rounded-lg transition ${
-                    timeframe === q ? "bg-[#007BFF] text-white" : "bg-white/5 text-white/60 hover:bg-white/10"
-                  }`}
-                >
-                  {q} 2026
-                </button>
-              ))}
+            <div className="flex flex-wrap gap-4">
+              <div className="flex gap-2">
+                <span className="text-xs font-semibold text-white/40 uppercase self-center mr-2">Timeframe</span>
+                {(["Q1", "Q2", "Q3"] as const).map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => setTimeframe(q)}
+                    className={`text-xs px-3 py-1.5 rounded-lg transition ${
+                      timeframe === q ? "bg-[#007BFF] text-white font-semibold" : "bg-white/5 text-white/60 hover:bg-white/10"
+                    }`}
+                  >
+                    {q} 2026
+                  </button>
+                ))}
+              </div>
+              
+              <div className="flex gap-2">
+                <span className="text-xs font-semibold text-white/40 uppercase self-center mr-2">Sector</span>
+                {(["Retail", "FMCG"] as const).map((ind) => (
+                  <button
+                    key={ind}
+                    onClick={() => setIndustryFilter(ind)}
+                    className={`text-xs px-3 py-1.5 rounded-lg transition ${
+                      industryFilter === ind ? "bg-[#007BFF] text-white font-semibold" : "bg-white/5 text-white/60 hover:bg-white/10"
+                    }`}
+                  >
+                    {ind}
+                  </button>
+                ))}
+              </div>
             </div>
-            
-            <div className="flex gap-2">
-              <span className="text-xs font-semibold text-white/40 uppercase self-center mr-2">Sector</span>
-              {(["Retail", "FMCG"] as const).map((ind) => (
-                <button
-                  key={ind}
-                  onClick={() => setIndustryFilter(ind)}
-                  className={`text-xs px-3 py-1.5 rounded-lg transition ${
-                    industryFilter === ind ? "bg-[#007BFF] text-white" : "bg-white/5 text-white/60 hover:bg-white/10"
-                  }`}
-                >
-                  {ind}
-                </button>
-              ))}
+
+            {/* View Selector Toggle */}
+            <div className="flex gap-2 border-t md:border-t-0 md:border-l border-white/10 pt-3 md:pt-0 md:pl-4">
+              <span className="text-xs font-semibold text-white/40 uppercase self-center mr-2">Visual View</span>
+              <button
+                onClick={() => setSimView("metrics")}
+                className={`text-xs px-3 py-1.5 rounded-lg transition ${
+                  simView === "metrics" ? "bg-[#007BFF] text-white font-semibold" : "bg-white/5 text-white/60 hover:bg-white/10"
+                }`}
+              >
+                Metrics Dashboard
+              </button>
+              <button
+                onClick={() => setSimView("pipeline")}
+                className={`text-xs px-3 py-1.5 rounded-lg transition ${
+                  simView === "pipeline" ? "bg-[#007BFF] text-white font-semibold" : "bg-white/5 text-white/60 hover:bg-white/10"
+                }`}
+              >
+                Data Pipeline Flow
+              </button>
             </div>
           </div>
 
-          {/* Dashboard Display */}
-          <div className="p-8 grid grid-cols-2 md:grid-cols-4 gap-6 bg-slate-950/40">
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
-              <span className="text-xs text-white/40 font-semibold uppercase">Total Revenue</span>
-              <span className="text-2xl md:text-3xl font-extrabold text-[#4DA3FF] mt-2 block">{selectedData.revenue}</span>
-            </div>
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
-              <span className="text-xs text-white/40 font-semibold uppercase">Gross Margin</span>
-              <span className="text-2xl md:text-3xl font-extrabold text-emerald-400 mt-2 block">{selectedData.margin}</span>
-            </div>
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
-              <span className="text-xs text-white/40 font-semibold uppercase">Inventory Turn</span>
-              <span className="text-2xl md:text-3xl font-extrabold text-cyan-400 mt-2 block">{selectedData.turnover}</span>
-            </div>
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
-              <span className="text-xs text-white/40 font-semibold uppercase">Stockout Risk</span>
-              <span className={`text-2xl md:text-3xl font-extrabold mt-2 block ${
-                selectedData.risk === "Low" ? "text-emerald-400" : selectedData.risk === "Medium" ? "text-amber-400" : "text-rose-400 animate-pulse"
-              }`}>{selectedData.risk}</span>
-            </div>
-          </div>
+          {/* Conditional Dashboard Display */}
+          <AnimatePresence mode="wait">
+            {simView === "metrics" ? (
+              <motion.div 
+                key="metrics"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="p-8 grid grid-cols-2 md:grid-cols-4 gap-6 bg-slate-900/10"
+              >
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                  <span className="text-xs text-white/40 font-semibold uppercase">Total Revenue</span>
+                  <span className="text-2xl md:text-3xl font-extrabold text-[#4DA3FF] mt-2 block">{selectedData.revenue}</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                  <span className="text-xs text-white/40 font-semibold uppercase">Gross Margin</span>
+                  <span className="text-2xl md:text-3xl font-extrabold text-emerald-400 mt-2 block">{selectedData.margin}</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                  <span className="text-xs text-white/40 font-semibold uppercase">Inventory Turn</span>
+                  <span className="text-2xl md:text-3xl font-extrabold text-cyan-400 mt-2 block">{selectedData.turnover}</span>
+                </div>
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                  <span className="text-xs text-white/40 font-semibold uppercase">Stockout Risk</span>
+                  <span className={`text-2xl md:text-3xl font-extrabold mt-2 block ${
+                    selectedData.risk === "Low" ? "text-emerald-400" : selectedData.risk === "Medium" ? "text-amber-400" : "text-rose-400 animate-pulse"
+                  }`}>{selectedData.risk}</span>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="pipeline"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="p-8 bg-slate-900/10 flex flex-col md:flex-row items-center justify-between gap-8 min-h-[300px]"
+              >
+                {/* Left Column: Data Sources */}
+                <div className="flex flex-col gap-4 w-full md:w-auto">
+                  <span className="text-[10px] text-white/40 font-semibold uppercase block mb-1 font-mono">Raw Ingestion Sources</span>
+                  <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 w-64">
+                    <Database size={18} className="text-[#00c8ff]" />
+                    <div>
+                      <span className="text-xs font-bold block">PostgreSQL Production</span>
+                      <span className="text-[10px] text-white/40 block">Daily Transaction SQL</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 w-64">
+                    <Database size={18} className="text-emerald-400" />
+                    <div>
+                      <span className="text-xs font-bold block">Stripe Payment Gateway</span>
+                      <span className="text-[10px] text-white/40 block">Invoice Webhooks API</span>
+                    </div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-3 w-64">
+                    <Database size={18} className="text-[#4DA3FF]" />
+                    <div>
+                      <span className="text-xs font-bold block">Excel Sales Logs</span>
+                      <span className="text-[10px] text-white/40 block">Manual Cashbook Ledger</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Middle Column: SVG Animated Pipeline paths */}
+                <div className="hidden md:block flex-1 max-w-[200px] h-32 relative">
+                  <svg className="w-full h-full" viewBox="0 0 200 120" fill="none">
+                    {/* PostgreSQL to ETL */}
+                    <path d="M 0,20 Q 100,20 100,60" stroke="rgba(0, 188, 255, 0.2)" strokeWidth="2" />
+                    <path d="M 0,20 Q 100,20 100,60" stroke="#00c8ff" strokeWidth="2" strokeDasharray="6 20" strokeDashoffset="0" className="animate-[marquee_5s_linear_infinite]" />
+                    
+                    {/* Stripe to ETL */}
+                    <path d="M 0,60 H 100" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="2" />
+                    <path d="M 0,60 H 100" stroke="#10b981" strokeWidth="2" strokeDasharray="6 20" strokeDashoffset="0" className="animate-[marquee_5s_linear_infinite]" />
+                    
+                    {/* Excel to ETL */}
+                    <path d="M 0,100 Q 100,100 100,60" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="2" />
+                    <path d="M 0,100 Q 100,100 100,60" stroke="#3b82f6" strokeWidth="2" strokeDasharray="6 20" strokeDashoffset="0" className="animate-[marquee_5s_linear_infinite]" />
+
+                    {/* ETL to Target */}
+                    <path d="M 100,60 H 200" stroke="rgba(0, 188, 255, 0.2)" strokeWidth="2" />
+                    <path d="M 100,60 H 200" stroke="#00c8ff" strokeWidth="2" strokeDasharray="6 20" strokeDashoffset="0" className="animate-[marquee_5s_linear_infinite]" />
+                  </svg>
+                </div>
+
+                {/* Central Processing Node */}
+                <div className="bg-gradient-to-br from-[#007BFF]/10 to-[#00c8ff]/10 border border-[#007BFF]/40 rounded-3xl p-6 text-center max-w-[180px] shrink-0">
+                  <RefreshCw size={28} className="text-[#4DA3FF] mx-auto mb-3 animate-spin [animation-duration:6s]" />
+                  <span className="text-xs font-bold text-white block">BizWise ETL Parser</span>
+                  <span className="text-[10px] text-white/50 block mt-1">Star Schema Normalizer</span>
+                </div>
+
+                {/* Target Data Model */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 w-64">
+                  <span className="text-[10px] text-white/40 font-semibold uppercase block mb-3 font-mono">Normalized Star Model</span>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-[10px] font-mono text-white/70">
+                      <span>Dim_Location</span>
+                      <span className="text-emerald-400 font-bold">READY</span>
+                    </div>
+                    <div className="flex justify-between text-[10px] font-mono text-white/70">
+                      <span>Dim_Product</span>
+                      <span className="text-emerald-400 font-bold">READY</span>
+                    </div>
+                    <div className="flex justify-between text-[10px] font-mono text-white/70">
+                      <span>Fact_Sales</span>
+                      <span className="text-emerald-400 font-bold">READY</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -279,7 +396,7 @@ export default function BIClient() {
             Book a complimentary dashboard review. We will map your current spreadsheet structures and outline a complete visual configuration blueprint.
           </p>
           <Link href="/schedule">
-            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="bi_bottom_consult">
+            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="bi_bottom_consult">
               Schedule Your Free Setup Audit
             </Button>
           </Link>

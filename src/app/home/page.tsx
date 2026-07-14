@@ -3,48 +3,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
-  Brain,
-  BarChart3,
-  TrendingUp,
-  MessageSquare,
-  ArrowRight,
   ShieldCheck,
   Zap,
   Users
 } from "lucide-react";
 import Link from "next/link";
+import AISandboxConsole from "@/components/home/AISandboxConsole";
+import BentoGridServices from "@/components/home/BentoGridServices";
 
 export default function HomePage() {
-  const services = [
-    {
-      title: "AI Consulting for SMEs",
-      desc: "Practical AI adoption strategy and integrations tailored for Sri Lankan small businesses — no enterprise budget needed.",
-      link: "/services/ai-consulting-sme",
-      anchorText: "Learn more about SME AI Consulting",
-      icon: Brain,
-    },
-    {
-      title: "Business Intelligence",
-      desc: "Interactive Power BI dashboards that consolidate your sales, inventory, and finance data into a single source of truth.",
-      link: "/services/business-intelligence",
-      anchorText: "Explore our Business Intelligence dashboards",
-      icon: BarChart3,
-    },
-    {
-      title: "Sales Forecasting & Predictive Analytics",
-      desc: "Apply machine learning to predict demand, optimize stock levels, and reduce costly stockouts for retail and FMCG brands.",
-      link: "/services/sales-forecasting",
-      anchorText: "Read about Sales Forecasting analytics",
-      icon: TrendingUp,
-    },
-    {
-      title: "Customer Sentiment Analysis",
-      desc: "Decode customer feedback, reviews, and social media comments using NLP to understand what customers really think.",
-      link: "/services/customer-sentiment-analysis",
-      anchorText: "See Customer Sentiment Analysis in action",
-      icon: MessageSquare,
-    },
-  ];
 
   const testimonials = [
     {
@@ -72,7 +39,7 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-24 overflow-hidden">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-24 overflow-hidden bg-spotlight">
       
       {/* Hero Section */}
       <section className="relative px-6 py-20 md:py-32 max-w-6xl mx-auto flex flex-col items-center text-center">
@@ -114,17 +81,19 @@ export default function HomePage() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Link href="/schedule">
-            <Button className="w-full sm:w-auto text-lg px-8 py-6 bg-[#007BFF] text-white hover:bg-[#4DA3FF] rounded-xl font-bold btn-cta glow-btn shadow-lg shadow-blue-500/20" data-cta="hero_consult_primary">
+            <Button className="w-full sm:w-auto text-lg px-8 py-6 bg-[#007BFF] text-white hover:bg-[#0054ad] rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="hero_consult_primary">
               Get Your Free Consultation
             </Button>
           </Link>
           <Link href="/services">
-            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border-white/20 hover:border-white/50 text-white rounded-xl font-semibold backdrop-blur-md">
+            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border border-white/20 hover:border-[#007BFF] text-white hover:bg-[#007BFF]/10 rounded-xl font-semibold backdrop-blur-md transition-all duration-300">
               Explore Services
             </Button>
           </Link>
         </motion.div>
       </section>
+
+      <AISandboxConsole />
 
       {/* Trust Signals & Tech Stack */}
       <section className="border-y border-white/5 bg-white/[0.01] py-8 overflow-hidden">
@@ -171,45 +140,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services summary section */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Custom Data Solutions for Your Business
-          </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-base">
-            We build high-performance data systems that replace Excel sheets, guide retail forecasting, and deploy practical artificial intelligence.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, idx) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={idx}
-                className="glass-panel glass-panel-hover p-8 rounded-3xl flex flex-col justify-between"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div>
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 w-fit mb-6 text-[#4DA3FF]">
-                    <Icon size={28} />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-6">{service.desc}</p>
-                </div>
-                <Link href={service.link} className="inline-flex items-center gap-2 text-sm font-semibold text-[#4DA3FF] hover:text-[#007BFF] transition group">
-                  {service.anchorText}
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
+      {/* Services Bento Grid */}
+      <BentoGridServices />
 
       {/* Testimonials section */}
       <section className="max-w-6xl mx-auto px-6 py-20">
@@ -255,7 +187,7 @@ export default function HomePage() {
             Book a complimentary 30-minute AI readiness assessment with Danesh and Nilal. We&apos;ll audit your current data stack and identify immediate optimization wins.
           </p>
           <Link href="/schedule">
-            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#4DA3FF] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg shadow-blue-500/20" data-cta="home_bottom_consult">
+            <Button className="text-lg px-8 py-6 bg-[#007BFF] hover:bg-[#0054ad] text-white rounded-xl font-bold btn-cta glow-btn shadow-lg" data-cta="home_bottom_consult">
               Schedule Your Free Consultation
             </Button>
           </Link>
