@@ -1,144 +1,70 @@
-"use client";
+import type { Metadata } from "next";
+import AboutClient from "./AboutClient";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { useScrollToTop } from "@/hooks/page"; 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+export const metadata: Metadata = {
+  title: "About BizWise – AI Consultancy Built for Sri Lankan SMEs",
+  description: "Meet the team behind BizWise and our mission to make AI and data analytics accessible to Sri Lankan businesses.",
+};
 
 export default function AboutPage() {
-  useScrollToTop();
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://bizwise.lk/about/#webpage",
+    "url": "https://bizwise.lk/about",
+    "name": "About BizWise",
+    "description": "Meet the team behind BizWise and our mission to make AI and data analytics accessible to Sri Lankan businesses.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://bizwise.lk/#website",
+      "name": "BizWise",
+      "url": "https://bizwise.lk"
+    }
+  };
 
-  const missionRef = useRef(null);
-  const missionInView = useInView(missionRef, { once: true });
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://bizwise.lk/#organization",
+    "name": "BizWise",
+    "url": "https://bizwise.lk",
+    "logo": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png"
+  };
 
-  const teamRef = useRef(null);
-  const teamInView = useInView(teamRef, { once: true });
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bizwise.lk"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://bizwise.lk/about"
+      }
+    ]
+  };
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10">
-      {/* About Hero Section */}
-      <section className="flex flex-col text-left px-4 py-20 max-w-4xl mx-auto">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold leading-tight"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          About <span className="text-[#4DA3FF]">BizWise</span>
-        </motion.h2>
-        <motion.p
-          className="text-lg mt-6 max-w-3xl md:text-left"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          BizWise is a Sri Lankan AI consultancy dedicated to helping local
-          businesses harness the power of data. From small startups to
-          established enterprises, we provide intelligent, cost-effective
-          solutions tailored to the local market and culture. We specialise 
-          in AI Consulting for SMEs, Business Intelligence for startups, 
-          Predictive analytics for businesses, Sales forecasting analytics 
-          & Customer sentiment analysis. 
-        </motion.p>
-      </section>
-
-      {/* Mission and Core ValuesSection */}
-      <motion.section
-        ref={missionRef}
-        className="text-center py-20 px-6 bg-[#0062D6] rounded-3xl max-w-4xl sm:mx-auto mx-6"
-        initial={{ opacity: 0 }}
-        animate={missionInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold mb-6">Our Mission</h3>
-          <div className="text-white/90 text-lg leading-relaxed">
-            <p className="text-white/90 text-lg leading-relaxed">
-              To empower Sri Lankan & Global businesses by making data intelligence
-              accessible, affordable, and impactful. We aim to transform raw
-              information into actionable insight using the latest AI tools,
-              enabling smarter decisions and sustainable growth.
-            </p>
-          </div><br></br><br></br>
-          <h3 className="text-3xl font-bold mb-6">Our Core Values</h3>
-          <div className="text-white/90 text-lg leading-relaxed">
-            <ul className="space-y-4 text-left max-w-md mx-auto">
-              {[
-                "Insight-driven",
-                "Client-centric",
-                "Innovative",
-                "Actionable",
-                "Growth-focused",
-              ].map((value, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle className="text-white/80 w-5 h-5 mt-1" />
-                  <span className="text-white">{value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Team Section */}
-      <motion.section
-        ref={teamRef}
-        className="py-20 px-6"
-        initial={{ opacity: 0 }}
-        animate={teamInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Meet the Team</h3>
-          <div className="grid md:grid-cols-2 gap-10 text-white text-center">
-            {[
-              {
-                name: "Danesh Jayasinghe",
-                title: "Data Strategist & Data Protection Officer (Founder) ",
-                bio: "10+ years in analytics and business development. Passionate about helping local businesses scale with data.",
-              },
-              {
-                name: "Nilal Fernando ",
-                title: "Lead Analyst",
-                bio: "Bringing over 12 years of experience primarily from the finance industry. Nilal is dedicated to empowering clients to leverage their data for strategic decision-making and sustainable growth.",
-              },
-            ].map((member, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-[rgba(255,255,255,0.05)] backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: idx * 0.2 }}
-              >
-                <h4 className="text-xl font-semibold mb-2">{member.name}</h4>
-                <p className="text-[#4DA3FF] mb-2">{member.title}</p>
-                <p className="text-sm text-white/80">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* CTA Section */}
-      <motion.section
-        className="text-center py-20 px-6 bg-[#0062D6]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h3 className="text-3xl font-bold mb-4">Let’s Collaborate</h3>
-        <p className="mb-8 max-w-2xl mx-auto text-white/90">
-          Whether you’re exploring AI for the first time or scaling your data
-          operations, we’re here to help you take the next step.
-        </p>
-        <Link href="/schedule">
-          <Button className="text-lg px-6 py-3 bg-[#4DA3FF] text-white hover:bg-[#004AAD] rounded-xl font-semibold shadow-lg">
-            Schedule a Free Consultation
-          </Button>
-        </Link>
-      </motion.section>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <AboutClient />
+    </>
   );
 }

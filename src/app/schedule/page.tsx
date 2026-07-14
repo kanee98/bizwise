@@ -126,7 +126,8 @@ export default function SchedulePage() {
           href="https://calendly.com/kaniyouth/consultation"
           target="_blank"
           rel="noreferrer"
-          className="inline-block bg-[#4DA3FF] hover:bg-[#007BFF] transition text-white font-semibold px-8 py-4 rounded-xl shadow-lg"
+          className="inline-block bg-[#4DA3FF] hover:bg-[#007BFF] transition text-white font-semibold px-8 py-4 rounded-xl shadow-lg btn-cta"
+          data-cta="schedule_page_book_now"
         >
           Book Now
         </a>
