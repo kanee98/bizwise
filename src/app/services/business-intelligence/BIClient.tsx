@@ -55,10 +55,10 @@ export default function BIClient() {
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-spotlight">
+    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-transparent">
       
       {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 text-left mb-16">
+      <section className="max-w-6xl mx-auto px-6 text-left mb-16">
         <Link href="/services" className="inline-flex items-center gap-1 text-sm font-semibold text-[#4DA3FF] hover:underline mb-6">
           &larr; Back to Services Hub
         </Link>

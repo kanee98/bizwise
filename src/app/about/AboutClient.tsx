@@ -17,10 +17,10 @@ export default function AboutClient() {
   const teamInView = useInView(teamRef, { once: true, amount: 0.1 });
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-24 bg-spotlight">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-24 bg-transparent">
       
       {/* About Hero Section */}
-      <section className="flex flex-col text-left px-6 py-20 max-w-4xl mx-auto">
+      <section className="flex flex-col text-left px-6 py-20 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function AboutClient() {
       {/* Mission Section */}
       <section ref={missionRef} className="py-20 px-6 bg-radial-gradient">
         <motion.div 
-          className="max-w-4xl mx-auto glass-panel p-10 md:p-14 rounded-3xl"
+          className="max-w-6xl mx-auto glass-panel p-10 md:p-14 rounded-3xl"
           initial={{ opacity: 0, y: 30 }}
           animate={missionInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}

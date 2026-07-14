@@ -44,14 +44,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 py-4 md:py-6">
-      <div 
-        className={`flex justify-between items-center w-full mx-auto transition-all duration-500 px-6 py-3 rounded-full ${
-          isScrolled 
-            ? "glass-panel border border-white/10 shadow-[0_0_30px_rgba(0,123,255,0.12)] max-w-5xl" 
-            : "bg-transparent border border-transparent max-w-7xl"
-        }`}
-      >
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 ${
+      isScrolled 
+        ? "bg-[#0a1128]/85 backdrop-blur-lg border-b border-white/10 py-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" 
+        : "bg-transparent py-5"
+    }`}>
+      <div className="flex justify-between items-center w-full mx-auto max-w-7xl transition-all duration-300">
         <Link href="/" className="flex items-center overflow-hidden" style={{ height: 40 }}>
           <Image
             src="/Bizwise Logo Text - No BG.png"

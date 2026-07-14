@@ -44,10 +44,10 @@ export default function ContactClient() {
   };
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-28 pb-20 bg-spotlight">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-28 pb-20 bg-transparent">
       
       {/* Contact Header */}
-      <section className="max-w-4xl mx-auto text-left mb-16 px-6">
+      <section className="max-w-6xl mx-auto text-left mb-16 px-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

@@ -117,7 +117,9 @@
     @apply border-border outline-ring/50;
   }
   body, html {
-    background-color: #0a1128;
+    background: radial-gradient(circle at 10% 20%, rgba(0, 188, 255, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 123, 255, 0.06) 0%, transparent 40%),
+                #0a1128;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }

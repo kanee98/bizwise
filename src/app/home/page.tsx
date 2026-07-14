@@ -39,7 +39,7 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans relative z-10 pt-24 overflow-hidden bg-spotlight">
+    <main className="min-h-screen text-white font-sans relative z-10 pt-24 overflow-hidden bg-transparent">
       
       {/* Hero Section */}
       <section className="relative px-6 py-20 md:py-32 max-w-6xl mx-auto flex flex-col items-center text-center">
@@ -86,7 +86,7 @@ export default function HomePage() {
             </Button>
           </Link>
           <Link href="/services">
-            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border border-white/20 hover:border-[#007BFF] text-white hover:bg-[#007BFF]/10 rounded-xl font-semibold backdrop-blur-md transition-all duration-300">
+            <Button variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border border-white/20 hover:border-[#007BFF] text-white bg-transparent hover:bg-[#007BFF]/10 hover:text-white rounded-xl font-semibold backdrop-blur-md transition-all duration-300">
               Explore Services
             </Button>
           </Link>

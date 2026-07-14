@@ -43,10 +43,10 @@ export default function ServicesClient() {
   ];
 
   return (
-    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-spotlight">
+    <main className="min-h-screen text-white font-sans pt-28 pb-20 relative z-10 bg-transparent">
       
       {/* Intro Header */}
-      <section className="max-w-4xl mx-auto text-left mb-16 px-6">
+      <section className="max-w-6xl mx-auto text-left mb-16 px-6">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
