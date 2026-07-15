@@ -16,7 +16,7 @@ export default function ServicesPage() {
       "@type": "Organization",
       "name": "BizWise",
       "url": "https://bizwise.lk",
-      "logo": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png"
+      "logo": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png"
     },
     "description": "Explore BizWise services for AI consulting, business intelligence, sales forecasting, and customer sentiment analysis.",
     "hasOfferCatalog": {

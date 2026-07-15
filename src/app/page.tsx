@@ -13,7 +13,7 @@ export default function Pages() {
     "@id": "https://bizwise.lk/#organization",
     "name": "BizWise",
     "url": "https://bizwise.lk",
-    "logo": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png",
+    "logo": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png",
     "description": "AI & Data Analytics Consultancy for Sri Lankan SMEs and Startups.",
     "sameAs": []
   };
@@ -23,7 +23,7 @@ export default function Pages() {
     "@type": "ProfessionalService",
     "@id": "https://bizwise.lk/#service",
     "name": "BizWise",
-    "image": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png",
+    "image": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png",
     "priceRange": "$$",
     "telephone": "+94766290934",
     "email": "contact@bizwise.lk",

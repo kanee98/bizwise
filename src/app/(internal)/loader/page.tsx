@@ -64,7 +64,7 @@ export default function BizwiseLoader() {
           {/* Core Logo Container */}
           <div className="w-44 h-44 rounded-full bg-[#0a1128]/90 border border-white/10 flex items-center justify-center p-6 relative z-10 shadow-[0_0_50px_rgba(0,123,255,0.25)]">
             <Image
-              src="/Bizwise Logo No BG - Full.png"
+              src="/Bizwise-Logo-No-BG-Full.png"
               alt="BizWise Logo"
               width={130}
               height={130}

@@ -52,7 +52,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center w-full mx-auto max-w-7xl transition-all duration-300">
         <Link href="/" className="flex items-center overflow-hidden" style={{ height: 40 }}>
           <Image
-            src="/Bizwise Logo Text - No BG.png"
+            src="/Bizwise-Logo-Text-No-BG.png"
             alt="BizWise Logo"
             width={200} 
             height={200} 

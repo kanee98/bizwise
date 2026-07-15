@@ -28,7 +28,7 @@ export default function AboutPage() {
     "@id": "https://bizwise.lk/#organization",
     "name": "BizWise",
     "url": "https://bizwise.lk",
-    "logo": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png"
+    "logo": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png"
   };
 
   const breadcrumbSchema = {

@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <Link href="/">
             <Image
-              src="/Bizwise Logo Text - No BG.png"
+              src="/Bizwise-Logo-Text-No-BG.png"
               alt="BizWise Logo"
               width={160}
               height={40}

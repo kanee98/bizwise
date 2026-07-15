@@ -27,7 +27,7 @@ export default function ContactPage() {
     "@type": "ProfessionalService",
     "@id": "https://bizwise.lk/#service",
     "name": "BizWise",
-    "image": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png",
+    "image": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png",
     "priceRange": "$$",
     "telephone": "+94766290934",
     "email": "contact@bizwise.lk",

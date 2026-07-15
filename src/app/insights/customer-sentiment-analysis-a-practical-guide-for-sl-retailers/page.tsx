@@ -42,7 +42,7 @@ export default function Page() {
       "name": "BizWise",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://bizwise.lk/Bizwise%20Logo%20No%20BG%20-%20Full.png"
+        "url": "https://bizwise.lk/Bizwise-Logo-No-BG-Full.png"
       }
     },
     "datePublished": "2026-05-28"
