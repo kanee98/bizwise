@@ -38,6 +38,9 @@ jobs:
           cp -r .next/static deploy/standalone/.next/static
           cp -r public deploy/standalone/
           cp -r public deploy/
+          # Ensure sharp and @img are copied
+          cp -r node_modules/sharp deploy/standalone/node_modules/
+          cp -r node_modules/@img deploy/standalone/node_modules/
           cp app.js deploy/
           mkdir -p deploy/tmp
 
@@ -52,6 +55,8 @@ jobs:
           test -d deploy/standalone/.next/static
           test -d deploy/standalone/public
           test -d deploy/public
+          test -d deploy/standalone/node_modules/sharp
+          test -d deploy/standalone/node_modules/@img
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
