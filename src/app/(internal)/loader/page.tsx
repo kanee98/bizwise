@@ -55,19 +55,19 @@ export default function BizwiseLoader() {
 
       <div id="loading-content" className="z-10 relative flex flex-col items-center">
         {/* Pulsing Concentric Spinning Rings */}
-        <div className="relative w-48 h-48 flex items-center justify-center">
+        <div className="relative w-64 h-64 flex items-center justify-center">
           <div className="absolute inset-0 border border-white/5 rounded-full" />
           <div className="absolute inset-0 border-2 border-transparent border-t-[#4DA3FF] border-b-[#00c8ff] rounded-full animate-spin [animation-duration:2.5s]" />
-          <div className="absolute inset-3 border border-transparent border-r-[#007BFF] border-l-emerald-400 rounded-full animate-spin [animation-duration:1.2s] [animation-direction:reverse]" />
-          <div className="absolute inset-6 border border-white/10 border-dashed rounded-full" />
+          <div className="absolute inset-4 border border-transparent border-r-[#007BFF] border-l-emerald-400 rounded-full animate-spin [animation-duration:1.2s] [animation-direction:reverse]" />
+          <div className="absolute inset-8 border border-white/10 border-dashed rounded-full" />
           
           {/* Core Logo Container */}
-          <div className="w-32 h-32 rounded-full bg-[#0a1128]/90 border border-white/10 flex items-center justify-center p-5 relative z-10 shadow-[0_0_50px_rgba(0,123,255,0.25)]">
+          <div className="w-44 h-44 rounded-full bg-[#0a1128]/90 border border-white/10 flex items-center justify-center p-6 relative z-10 shadow-[0_0_50px_rgba(0,123,255,0.25)]">
             <Image
               src="/Bizwise Logo No BG - Full.png"
               alt="BizWise Logo"
-              width={100}
-              height={100}
+              width={130}
+              height={130}
               className="object-contain animate-pulse [animation-duration:1.8s]"
               priority
             />
