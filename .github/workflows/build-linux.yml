@@ -36,6 +36,7 @@ jobs:
           cp -r .next/standalone deploy/
           mkdir -p deploy/standalone/.next
           cp -r .next/static deploy/standalone/.next/static
+          cp -r public deploy/standalone/
           cp -r public deploy/
           cp app.js deploy/
           mkdir -p deploy/tmp
@@ -49,6 +50,7 @@ jobs:
           test -f deploy/app.js
           test -f deploy/standalone/server.js
           test -d deploy/standalone/.next/static
+          test -d deploy/standalone/public
           test -d deploy/public
 
       - name: Upload artifact
